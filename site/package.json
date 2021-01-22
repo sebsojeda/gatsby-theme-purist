@@ -1,0 +1,20 @@
+{
+  "name": "site",
+  "private": true,
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Sebastian Ojeda <hello@sebastianojeda.com> (@sebsojeda)",
+  "repository": "https://github.com/sebsojeda/gatsby-theme-purist",
+  "license": "0BSD",
+  "scripts": {
+    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "build": "gatsby build",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^2.21.21",
+    "gatsby-theme-purist": "*",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  }
+}

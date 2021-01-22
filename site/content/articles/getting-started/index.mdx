@@ -1,0 +1,132 @@
+---
+title: Getting Started
+date: 2020-12-31
+featuredImage: ./hero.jpg
+draft: false
+---
+
+# H1 header
+## H2 header
+### H3 header
+#### H4 header
+##### H5 header
+###### H6 header
+
+Paragraphs are separated by a blank line.
+
+2nd paragraph. *Italic*, **bold**, and `monospace`.
+
+Itemized lists look like:
+* this one
+* that one
+* the other one
+
+Have some emojis: 💻 ⌨️ 🖱️
+
+Here's a numbered list:
+1. first item
+2. second item
+3. third item
+
+> Block quotes are written like so:
+> - Some
+> - Another
+>
+> They can span multiple paragraphs, if you like.
+
+Here's a code sample:
+```
+  # Let me re-iterate ...
+  for i in 1 .. 10 { do-something(i) }
+```
+
+You can optionally mark the delimited block for prism to syntax highlight it:
+
+```python
+import hashlib
+
+def hash_file(filename):
+   """"This function returns the SHA-1 hash
+   of the file passed into it"""
+
+   # make a hash object
+   h = hashlib.sha1()
+
+   # open file for reading in binary mode
+   with open(filename,'rb') as file:
+
+       # loop till the end of the file
+       chunk = 0
+       while chunk != b'':
+           # read only 1024 bytes at a time
+           chunk = file.read(1024)
+           h.update(chunk)
+
+   # return the hex representation of digest
+   return h.hexdigest()
+
+message = hash_file("track1.mp3")
+print(message)
+```
+
+~~You can also strikethrough a line.~~
+
+Now a nested list:
+
+1. First, use these tools:
+    * vscode
+    * eslint
+    * typescript
+    * prettier
+
+2. Boil some water.
+
+3. Dump everything in the pot and follow this algorithm:
+
+    ```jsx {5,8}
+    function tick() {
+      const element = (
+        <div>
+          <h1>Hello, world!</h1>
+          <h2>It is {new Date().toLocaleTimeString()}.</h2>
+        </div>
+      );
+      ReactDOM.render(element, document.getElementById('root'));
+    }
+
+    setInterval(tick, 1000);
+  ```
+
+  Don't forget you can highlight lines as well!
+
+Here's a link to [a website](https://github.com/sebsojeda/gatsby-theme-purity) and to a [section heading in the current
+doc](#h2-header). Here are footnotes [^1] [^2].
+
+[^1]: Some footnote text.
+[^2]: Some more notes.
+
+Tables look like this:
+
+| Name         | Size | Material    | Color       |
+| ------------ | ---- | ----------- | ----------- |
+| All Business | 9    | leather     | brown       |
+| Roundabout   | 10   | hemp canvas | natural     |
+| Cinderella   | 11   | glass       | transparent |
+
+Multi-line tables:
+
+| Keyword | Text                  |
+| ------- | --------------------- |
+| red     | Sunsets, apples,<br/>and other red or<br/>reddish things. |
+| green   | Leaves, grass, frogs<br/>and other things it's<br/>not easy being. |
+
+A horizontal rule follows.
+
+---
+
+Images can be specified like so:
+
+![example image](./square.png "An exemplary image")
+
+And note that you can backslash-escape any punctuation characters
+which you wish to be displayed literally, ex.: \`foo\`, \*bar\*, etc.

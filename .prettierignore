@@ -1,0 +1,14 @@
+# Ignore everything:
+/*
+
+# Except these root files:
+!LICENSE
+!README.md
+
+# Except these sources for the site workspace
+!/site/content
+!/site/static
+!/site/gatsby-config.js
+
+# Ignore nothing for the theme workspace
+!/gatsby-theme-purist

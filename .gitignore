@@ -1,3 +1,32 @@
-.cache
-public
+# Node Modules
 node_modules
+
+# Logs
+logs
+*.log
+yarn-debug.log*
+yarn-error.log*
+
+# Gatsby files
+.cache/
+public
+
+# Mac files
+.DS_Store
+
+# Yarn
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Editors
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

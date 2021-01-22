@@ -1,14 +1,34 @@
 {
-  "name": "gatsby-starter-theme-workspace",
+  "name": "gatsby-theme-purist-workspace",
   "private": true,
-  "version": "0.0.1",
+  "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
+  "license": "0BSD",
   "scripts": {
-    "build": "yarn workspace example build"
+    "build": "yarn workspace site build",
+    "dev": "yarn start",
+    "lint": "eslint --ignore-path .gitignore .",
+    "start": "yarn workspace site develop",
+    "clean": "yarn workspace site clean",
+    "bootstrap": "yarn lerna bootstrap",
+    "publish": "yarn lerna version && yarn lerna publish"
   },
   "workspaces": [
-    "gatsby-theme-minimal",
-    "example"
-  ]
+    "gatsby-theme-purist",
+    "site"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-unicorn": "^24.0.0",
+    "husky": "4.3.8",
+    "lerna": "^3.20.2",
+    "prettier": "^2.2.1",
+    "typescript": "^4.1.3"
+  }
 }

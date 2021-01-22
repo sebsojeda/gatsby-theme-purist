@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "airbnb-base",
+    "plugin:prettier/recommended",
+    "plugin:unicorn/recommended"
+  ],
+  "env": {
+    "browser": false
+  },
+  "overrides": [],
+  "plugins": [],
+  "rules": {
+    "unicorn/no-abusive-eslint-disable": 0,
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "kebabCase": true
+        }
+      }
+    ]
+  }
+}
