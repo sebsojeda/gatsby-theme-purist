@@ -35,13 +35,13 @@ A guide on how to get started with Purist.
 
 Using the `gatsby-cli`:
 
-```
+```sh
 gatsby new my-site https://github.com/sebsojeda/gatsby-starter-purist
 ```
 
 Using `git`:
 
-```
+```sh
 git clone https://github.com/sebsojeda/gatsby-starter-purist my-site
 
 cd my-site
@@ -53,7 +53,7 @@ yarn
 
 Once the starter has been downloaded, you can begin development.
 
-```
+```sh
 # Run localhost
 yarn dev
 
@@ -73,13 +73,14 @@ your article can also go in this folder.
 
 `/content/articles/my-first-article/index.mdx `
 
-```
+```md
 ---
 title: My first article
 date: 2020-12-25
 featuredImage: ./hero.jpg
 draft: false
 ---
+
 # Create your awesome MDX content here
 ```
 
@@ -89,13 +90,14 @@ Add a site configuration to customize the theme to your liking.
 
 `/gatsby-config.js`
 
-```
+```js
 module.exports = {
   siteMetadata: {
     name: 'Purist',
     defaultTitle: 'Purist: Creating content',
     titleTemplate: '%s • Purist: Creating content',
-    description: 'This is my description that will be used in the meta tags and important for search results',
+    description:
+      'This is my description that will be used in the meta tags and important for search results',
     hero: {
       heading: 'Welcome to Purist.',
       subheading: 'A clean way to create content with Gatsby',
@@ -111,17 +113,19 @@ module.exports = {
       },
     ],
   },
-  plugins: ['gatsby-theme-purist']
-}
+  plugins: ['gatsby-theme-purist'],
+};
 ```
 
 ## Customization
 
 ### Adding your logo
 
+`/gatsby-theme-purist/src/components/Logo/Logo.tsx`
+
 ### Changing styles
 
-`/gatsby-theme-purist`
+`/gatsby-theme-purist/src/themes`
 
 ## Data Models
 
