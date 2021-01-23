@@ -23,14 +23,14 @@ quickly and easily.
 A toggable light and dark theme are available out of the box using the
 `prefers-color-scheme` media query to determine the default theme.
 
-![dark mode](./assets/dark-mode.gif)
+![dark mode](https://raw.githubusercontent.com/sebsojeda/gatsby-theme-purist/main/assets/dark-mode.gif)
 
 ### Social Sharing
 
 You can select text within an article to easily copy or share directly with
 Twitter and LinkedIn.
 
-![social sharing](./assets/social-sharing.png)
+![social sharing](https://raw.githubusercontent.com/sebsojeda/gatsby-theme-purist/main/assets/social-sharing.png)
 
 ## Getting Started
 
