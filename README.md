@@ -1,3 +1,8 @@
+<a href="https://gatsby-theme-purity.netlify.app" target="_blank">
+<img src="https://raw.githubusercontent.com/sebsojeda/gatsby-theme-purist/main/assets/gatsby-theme-purist.png"
+alt="gatsby-theme-purist hero image" />
+</a>
+
 # Purist – A Gatsby theme
 
 A clean, full-featured theme with built-in search, dark mode, and social sharing
