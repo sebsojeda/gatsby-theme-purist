@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import React from 'react';
-import fonts from '../../themes/fonts';
+import theme from '../../theme';
 
 function ArticleDiscovery({ previous, next }: ArticleDiscoveryProps) {
   return (
@@ -56,7 +56,7 @@ const ArticleDate = styled.div`
 const Title = styled.h4`
   font-size: 1.5rem;
   line-height: 2rem;
-  font-family: ${fonts.serif};
+  font-family: ${theme.fonts.serif};
   display: inline-block;
   box-shadow: 0 2px 0;
   box-sizing: border-box;

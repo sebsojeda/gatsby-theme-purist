@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 import Img, { GatsbyImageProps } from 'gatsby-image';
 import React from 'react';
 import Layout from '../components/Layout';
-import fonts from '../themes/fonts';
+import theme from '../theme';
 
 function HomePage({ data }) {
   const { heading, subHeading } = data.site.siteMetadata.hero;
@@ -93,7 +93,7 @@ const CardTitle = styled.h3`
   line-height: 2rem;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
-  font-family: ${fonts.serif};
+  font-family: ${theme.fonts.serif};
   &:hover {
     color: var(--color-accent);
   }
@@ -113,7 +113,7 @@ const BannerWrapper = styled.section`
 `;
 
 const BannerHeading = styled.h1`
-  font-family: ${fonts.serif};
+  font-family: ${theme.fonts.serif};
   font-size: 2.25rem;
   line-height: 2.5rem;
 
@@ -151,6 +151,7 @@ const ArticlesLinkWrapper = styled.div`
   font-size: 1.25rem;
   line-height: 1.75rem;
   box-shadow: 0 2px 0;
+  color: inherit;
 
   &:hover {
     color: var(--color-accent);

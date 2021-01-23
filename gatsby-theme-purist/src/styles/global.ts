@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import emotionReset from 'emotion-reset';
-import fonts from '../themes/fonts';
+import theme from '../theme';
 
 const global = css`
   ${emotionReset}
@@ -13,7 +13,7 @@ const global = css`
     transition: background-color 0.3s ease-in-out;
     color: var(--color-text);
     background-color: var(--color-background);
-    font-family: ${fonts.sans};
+    font-family: ${theme.fonts.sans};
   }
   .footnotes ol {
     margin: 2.5rem 0;

@@ -3,7 +3,7 @@ import { graphql, Link } from 'gatsby';
 import React from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import fonts from '../themes/fonts';
+import theme from '../theme';
 
 function Articles({ data }) {
   return (
@@ -79,7 +79,7 @@ const ArticlesWrapper = styled.div`
 const LinkWrapper = styled.span`
   margin-left: 1rem;
   box-shadow: 0 2px 0;
-  font-family: ${fonts.serif};
+  font-family: ${theme.fonts.serif};
   &:hover {
     color: var(--color-accent);
   }

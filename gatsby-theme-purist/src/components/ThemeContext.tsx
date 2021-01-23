@@ -1,16 +1,18 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import colors from '../themes/colors';
+import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import theme from '../theme';
 import { kebabCase } from '../utils';
 
 const ThemeContext = React.createContext({
-  colorMode: '',
-  setColorMode: (mode) => {},
+  colorMode: null,
+  setColorMode: (_: string) => {},
 });
 
-function ThemeProvider({ children }) {
-  const [colorMode, rawSetColorMode] = useState('');
+const useTheme = () => useContext(ThemeContext);
 
-  useEffect(() => {
+function ThemeProvider({ children }) {
+  const [colorMode, rawSetColorMode] = useState(null);
+
+  useLayoutEffect(() => {
     const root = window.document.documentElement;
     const initialColorValue = root.style.getPropertyValue(
       '--initial-color-mode',
@@ -24,10 +26,12 @@ function ThemeProvider({ children }) {
 
       window.localStorage.setItem('color-mode', mode);
 
-      Object.entries(colors[mode]).forEach(([name, color]) => {
-        const cssVarName = `--color-${kebabCase(name)}`;
-        root.style.setProperty(cssVarName, color);
-      });
+      Object.entries(theme.colors[mode]).forEach(
+        ([name, color]: [string, string]) => {
+          const cssVarName = `--color-${kebabCase(name)}`;
+          root.style.setProperty(cssVarName, color);
+        },
+      );
 
       rawSetColorMode(mode);
     }
@@ -46,4 +50,4 @@ function ThemeProvider({ children }) {
 }
 
 export default ThemeContext;
-export { ThemeProvider };
+export { ThemeProvider, useTheme };

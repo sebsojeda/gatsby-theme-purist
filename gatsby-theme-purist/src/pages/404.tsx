@@ -28,8 +28,16 @@ const SearchWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
   margin-top: 2rem;
+  a {
+    color: inherit;
+  }
+  & > * {
+    margin: 0 1rem;
+  }
+  a:hover {
+    color: var(--color-accent);
+  }
 `;
 
 const PageWrapper = styled.div`

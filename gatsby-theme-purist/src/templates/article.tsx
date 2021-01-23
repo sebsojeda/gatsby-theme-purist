@@ -8,7 +8,7 @@ import HorizontalRule from '../components/HorizontalRule';
 import Layout from '../components/Layout';
 import Popover from '../components/Popover';
 import SEO from '../components/SEO';
-import fonts from '../themes/fonts';
+import theme from '../theme';
 
 function Article({ data, pageContext }) {
   const { body, timeToRead, frontmatter } = data.mdx;
@@ -74,7 +74,7 @@ const TitleWrapper = styled.div`
 const Title = styled.h1`
   font-size: 2.25rem;
   line-height: 2.5rem;
-  font-family: ${fonts.serif};
+  font-family: ${theme.fonts.serif};
 `;
 
 const Subtitle = styled.div`

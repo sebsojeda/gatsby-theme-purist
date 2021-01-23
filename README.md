@@ -1,6 +1,6 @@
 # Purist – A Gatsby theme
 
-A clean, full-featured theme with built-in search, dark mode and social sharing
+A clean, full-featured theme with built-in search, dark mode, and social sharing
 – all for creating content with Gatsby.
 
 ## Features
@@ -125,7 +125,7 @@ module.exports = {
 
 ### Changing styles
 
-`/gatsby-theme-purist/src/themes`
+`/gatsby-theme-purist/src/theme/index.ts`
 
 ## Data Models
 

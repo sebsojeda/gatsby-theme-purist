@@ -8,7 +8,7 @@ function Footer({ social }: FooterProps) {
     <React.Fragment>
       <HorizontalRule />
       <FooterWrapper>
-        <Tag>&lt;/&gt; with ❤</Tag>
+        <span>&lt;/&gt; with ❤</span>
         {social.map((data) => (
           <React.Fragment key={data.url}>
             <span>&nbsp;&middot;&nbsp;</span>
@@ -33,9 +33,6 @@ const FooterWrapper = styled.footer`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-`;
-
-const Tag = styled.span`
   color: var(--color-muted);
 `;
 

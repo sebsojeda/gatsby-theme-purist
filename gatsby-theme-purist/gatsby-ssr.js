@@ -1,7 +1,7 @@
 import React from 'react';
 import { minify } from 'terser';
 import App from './src/components/App';
-import colors from './src/themes/colors';
+import theme from './src/theme';
 import { kebabCase } from './src/utils';
 
 function setColorsByTheme() {
@@ -30,7 +30,7 @@ function setColorsByTheme() {
 
 const Styles = () => {
   const boundFn = String(setColorsByTheme)
-    .replace("'🌈'", JSON.stringify(colors))
+    .replace("'🌈'", JSON.stringify(theme.colors))
     .replace("'kebabCase'", `(${kebabCase})`);
 
   let calledFunction = `(${boundFn})()`;

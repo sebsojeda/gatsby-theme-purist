@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import anime from 'animejs';
-import React, { useContext } from 'react';
-import ThemeContext from '../ThemeContext';
+import React from 'react';
+import { useTheme } from '../ThemeContext';
 
 function Toggle() {
   const moonPath =
@@ -9,7 +9,7 @@ function Toggle() {
   const sunPath =
     'M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12Z';
 
-  const { colorMode, setColorMode } = useContext(ThemeContext);
+  const { colorMode, setColorMode } = useTheme();
 
   const handleClick = (e) => {
     e.preventDefault();

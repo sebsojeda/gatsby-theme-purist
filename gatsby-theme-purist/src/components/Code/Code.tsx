@@ -1,15 +1,15 @@
 import { Copy } from '@emotion-icons/boxicons-regular';
 import styled from '@emotion/styled';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import React, { useContext, useState } from 'react';
-import fonts from '../../themes/fonts';
-import prism from '../../themes/prism';
+import React, { useState } from 'react';
+import theme from '../../theme';
+import prism from '../../theme/prism';
 import { calculateLinesToHighlight, copyToClipboard } from '../../utils';
-import ThemeContext from '../ThemeContext';
+import { useTheme } from '../ThemeContext';
 
 function Code({ className, metastring, children }: CodeProps) {
   const language = className?.replace(/language-/, '') || 'text';
-  const { colorMode } = useContext(ThemeContext);
+  const { colorMode } = useTheme();
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   const [copied, setCopied] = useState(false);
 
@@ -26,8 +26,13 @@ function Code({ className, metastring, children }: CodeProps) {
         <LanguageName style={{ ...prism[colorMode]?.plain }}>
           {language}
         </LanguageName>
-        <CopyWrapper onClick={handleCopyCode} href="#" copied={copied}>
-          {copied ? 'Copied!' : <CopyIcon size="1.25rem" />}
+        <CopyWrapper
+          href="javascript:void(0)"
+          copied={copied}
+          style={{ ...prism[colorMode]?.highlight }}
+          onClick={handleCopyCode}
+        >
+          {copied ? 'Copied' : <CopyIcon size="1.25rem" />}
         </CopyWrapper>
       </Wrapper>
       <div className="gatsby-highlight">
@@ -35,7 +40,7 @@ function Code({ className, metastring, children }: CodeProps) {
           {...defaultProps}
           code={children as string}
           language={language as Language}
-          theme={prism[colorMode]}
+          theme={colorMode && { ...prism[colorMode] }}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <CodeWrapper className={className} style={{ ...style }}>
@@ -46,6 +51,7 @@ function Code({ className, metastring, children }: CodeProps) {
                   <CodeLine
                     key={index}
                     highlight={shouldHighlightLine(index)}
+                    highlightStyles={{ ...prism[colorMode]?.highlight }}
                     {...lineProps}
                   >
                     {line.map((token, key) => (
@@ -70,6 +76,10 @@ interface CodeProps {
 
 interface CodeLineProps {
   highlight: boolean;
+  highlightStyles: {
+    backgroundColor: string;
+    borderColor: string;
+  };
 }
 
 interface CopyWrapperProps {
@@ -81,13 +91,13 @@ const CopyWrapper = styled.a<CopyWrapperProps>`
   color: inherit;
   position: absolute;
   border-radius: 0.375rem;
-  padding: 0.75rem;
+  padding: 0.5rem;
   top: 0.5rem;
   right: 0.5rem;
   opacity: ${({ copied }) => (copied ? 1 : 0.25)};
-  font-family: ${fonts.monospace};
+  font-family: ${theme.fonts.monospace};
   font-size: 1rem;
-  background-color: var(--color-syntax-highlight);
+  transition: all 0.3s ease-in-out;
   &:hover,
   &:focus {
     opacity: 1;
@@ -101,14 +111,15 @@ const CopyIcon = styled(Copy)`
 `;
 
 const CodeLine = styled.div<CodeLineProps>`
-  background-color: ${({ highlight }) =>
-    highlight && 'var(--color-syntax-highlight)'};
+  background-color: ${({ highlight, highlightStyles }) =>
+    highlight && highlightStyles.backgroundColor};
   margin: ${({ highlight }) => (highlight ? '0 -1.5rem' : 'initial')};
   padding: ${({ highlight }) =>
     highlight ? '0 calc(1.5rem - 2px)' : 'initial'};
   box-sizing: border-box;
   border-left: solid 2px
-    ${({ highlight }) => (highlight ? 'var(--color-syntax-border)' : 'initial')};
+    ${({ highlight, highlightStyles }) =>
+      highlight ? highlightStyles.borderColor : 'initial'};
 `;
 
 const Wrapper = styled.div`
@@ -125,7 +136,7 @@ const LanguageName = styled.div`
   font-size: 1rem;
   line-height: 1rem;
   user-select: none;
-  font-family: ${fonts.monospace};
+  font-family: ${theme.fonts.monospace};
   color: var(--color-muted);
 `;
 
@@ -134,7 +145,7 @@ const CodeWrapper = styled.pre`
   float: left;
   min-width: calc(100% - 3rem);
   padding: 1.5rem;
-  font-family: ${fonts.monospace};
+  font-family: ${theme.fonts.monospace};
   & > * {
     display: flex;
   }

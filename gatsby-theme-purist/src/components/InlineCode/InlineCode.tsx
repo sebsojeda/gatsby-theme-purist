@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import fonts from '../../themes/fonts';
+import theme from '../../theme';
 
 const InlineCode = styled.code`
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
-  font-family: ${fonts.monospace};
+  font-family: ${theme.fonts.monospace};
   position: relative;
   &::after {
     opacity: 0.15;

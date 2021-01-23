@@ -1,5 +1,9 @@
 export default {
   light: {
+    highlight: {
+      backgroundColor: 'hsl(225deg, 25%, 93%)',
+      borderColor: '#bf00b8',
+    },
     plain: {
       backgroundColor: 'hsl(225deg, 25%, 97%)',
       text: '#2a2a2a',
@@ -56,6 +60,10 @@ export default {
     ],
   },
   dark: {
+    highlight: {
+      backgroundColor: 'hsl(210deg, 30%, 18%)',
+      borderColor: '#ffd600',
+    },
     plain: {
       backgroundColor: 'hsl(210deg, 30%, 12%)',
       text: '#fff',
