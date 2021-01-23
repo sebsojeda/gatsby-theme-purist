@@ -1,4 +1,4 @@
-<a href="https://gatsby-theme-purity.netlify.app" target="_blank">
+<a href="https://gatsby-theme-purist.netlify.app" target="_blank">
 <img src="https://raw.githubusercontent.com/sebsojeda/gatsby-theme-purist/main/assets/gatsby-theme-purist.png"
 alt="gatsby-theme-purist hero image" />
 </a>
