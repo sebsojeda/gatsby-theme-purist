@@ -1,7 +1,7 @@
 {
   "name": "site",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "author": "Sebastian Ojeda <hello@sebastianojeda.com> (@sebsojeda)",
   "repository": "https://github.com/sebsojeda/gatsby-theme-purist",
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "gatsby": "^2.21.21",
-    "gatsby-theme-purist": "*",
+    "gatsby-theme-purist": "^1.0.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   }
