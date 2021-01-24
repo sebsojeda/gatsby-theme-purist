@@ -126,11 +126,86 @@ module.exports = {
 
 ### Adding your logo
 
-`/gatsby-theme-purist/src/components/Logo/Logo.tsx`
+Your logo must be in SVG (vector) format in order to add it to the theme. This
+is required because we will be making a React component containing your SVG
+Logo.
+
+Start by creating the component file at:
+
+```
+  gatsby-site
+  └── src
+    └── gatsby-theme-purity
+      └── components
+        └── Logo
+          └── index.js
+```
+
+Once the file is created you can create your Logo component.
+
+```jsx
+import React from 'react';
+
+/**
+ * Paste in your SVG logo and return it from this component.
+ * Make sure you have a height set for your logo.
+ * It is recommended to keep the height within 24-34px.
+ * Make sure you set any 'fill' and 'stroke' attributes
+ * to "currentColor" if you would like the hover effect.
+ */
+export default function Logo() {
+  return (
+    <svg viewBox="0 0 28 28" height="24px" fill="currentColor">
+      <circle
+        cx="14"
+        cy="14"
+        r="12"
+        stroke="currentColor"
+        stroke-width="2"
+        fill="none"
+      />
+    </svg>
+  );
+}
+```
 
 ### Changing styles
 
-`/gatsby-theme-purist/src/theme/index.ts`
+Create a theme file and then you can override it with custom values.
+
+`/src/gatsby-theme-purity/theme/index.js`
+
+```js
+export default {
+  fonts: {
+    sans:
+      'ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+    serif: 'ui-serif, Georgia, Cambria, "Times New Roman", Times, serif',
+    monospace:
+      'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+  },
+  colors: {
+    light: {
+      background: 'hsl(0deg, 0%, 100%)',
+      text: 'hsl(222deg, 22%, 5%)',
+      info: 'hsl(245deg, 100%, 60%)',
+      infoBackground: 'hsl(210deg, 55%, 92%)',
+      accent: 'hsl(245deg, 100%, 60%)',
+      muted: 'hsl(225deg, 12%, 40%)',
+      gray: 'hsl(225deg, 25%, 97%)',
+    },
+    dark: {
+      background: 'hsl(210deg, 30%, 8%)',
+      text: 'hsl(0deg, 0%, 100%)',
+      info: 'hsl(230deg, 100%, 67%)',
+      infoBackground: 'hsl(210deg, 38%, 15%)',
+      accent: 'hsl(333deg, 100%, 52%)',
+      muted: 'hsl(210deg, 14%, 66%)',
+      gray: 'hsl(210deg, 30%, 12%)',
+    },
+  },
+};
+```
 
 ## Data Models
 
