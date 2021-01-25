@@ -44,7 +44,7 @@ function setColorsByTheme() {
 const ThemeScript = () => {
   const boundFn = String(setColorsByTheme)
     .replace("'🌈'", JSON.stringify(theme))
-    .replaceAll("'kebabCase'", `(${kebabCase})`);
+    .replace(/'kebabCase'/g, `(${kebabCase})`);
 
   let calledFunction = `(${boundFn})()`;
   minify(calledFunction).then((m) => (calledFunction = m.code));
