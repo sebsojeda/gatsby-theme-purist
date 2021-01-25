@@ -13,13 +13,13 @@ function Toggle() {
 
   const handleClick = (e) => {
     e.preventDefault();
+    setColorMode(colorMode === 'dark' ? 'light' : 'dark');
     anime({
       targets: '#toggle',
       d: [{ value: colorMode === 'dark' ? moonPath : sunPath }],
       duration: 300,
       easing: 'easeInOutQuad',
     });
-    setColorMode(colorMode === 'dark' ? 'light' : 'dark');
   };
 
   return (
@@ -41,6 +41,7 @@ function Toggle() {
 const ToggleWrapper = styled.a`
   transform: rotate(-45deg);
   color: inherit;
+  transition: all 0.2s ease-in-out;
   &:hover {
     color: var(--color-accent);
   }

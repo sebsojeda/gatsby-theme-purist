@@ -2,17 +2,16 @@ import styled from '@emotion/styled';
 import { graphql } from 'gatsby';
 import Img, { GatsbyImageProps } from 'gatsby-image';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
-import React from 'react';
+import React, { useRef } from 'react';
 import ArticleDiscovery from '../components/ArticleDiscovery';
-import HorizontalRule from '../components/HorizontalRule';
 import Layout from '../components/Layout';
 import Popover from '../components/Popover';
 import SEO from '../components/SEO';
-import theme from '../theme';
 
 function Article({ data, pageContext }) {
   const { body, timeToRead, frontmatter } = data.mdx;
   const hasMorePosts = pageContext.previous || pageContext.next;
+  const selectionRef = useRef(null);
 
   return (
     <Layout>
@@ -26,20 +25,17 @@ function Article({ data, pageContext }) {
         <Subtitle>
           {frontmatter.date} &middot; {timeToRead} min read
         </Subtitle>
-        <HorizontalRule />
         <TitleImage fluid={frontmatter.featuredImage?.childImageSharp.fluid} />
       </TitleWrapper>
-      <Popover>
+      <div ref={selectionRef}>
         <MDXRenderer>{body}</MDXRenderer>
-      </Popover>
+      </div>
+      <Popover selectionRef={selectionRef} />
       {hasMorePosts && (
-        <React.Fragment>
-          <HorizontalRule />
-          <ArticleDiscovery
-            previous={pageContext.previous}
-            next={pageContext.next}
-          />
-        </React.Fragment>
+        <ArticleDiscovery
+          previous={pageContext.previous}
+          next={pageContext.next}
+        />
       )}
     </Layout>
   );
@@ -72,9 +68,9 @@ const TitleWrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 2.25rem;
+  font-size: 3rem;
   line-height: 2.5rem;
-  font-family: ${theme.fonts.serif};
+  font-family: var(--font-serif);
 `;
 
 const Subtitle = styled.div`
@@ -87,9 +83,9 @@ const Subtitle = styled.div`
 
 const TitleImage = styled(Img)<GatsbyImageProps>`
   object-fit: cover;
-  margin-top: 5rem;
+  margin: 8rem auto 0 auto;
   max-height: 40rem;
-  border-radius: 0.375rem;
+  max-width: 60rem;
 `;
 
 export default Article;

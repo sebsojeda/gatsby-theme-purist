@@ -1,19 +1,12 @@
 import styled from '@emotion/styled';
 
-const Anchor = styled.a<AnchorProps>`
+const Anchor = styled.a`
   text-decoration: none;
-  transition: box-shadow 0.3s ease;
-  color: ${({ muted }) =>
-    muted ? 'var(--color-muted)' : 'var(--color-accent)'};
-
+  transition: box-shadow 0.2s ease;
+  color: var(--color-accent);
   &:hover {
-    box-shadow: 0 2px 0
-      ${({ muted }) => (muted ? 'var(--color-muted)' : 'var(--color-accent)')};
+    box-shadow: 0 2px 0 var(--color-accent);
   }
 `;
-
-interface AnchorProps {
-  muted?: boolean;
-}
 
 export default Anchor;

@@ -1,5 +1,4 @@
 {
-  "useWorkspaces": true,
   "packages": ["gatsby-theme-purist"],
   "npmClient": "yarn",
   "command": {

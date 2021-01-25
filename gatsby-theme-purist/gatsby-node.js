@@ -22,7 +22,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type Social implements Node {
-      name: String!
+      name: String
       url: String!
     }
   `;
@@ -63,6 +63,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             fields {
               slug
             }
+            timeToRead
             frontmatter {
               title
               date(formatString: "MMMM DD, YYYY")

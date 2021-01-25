@@ -3,7 +3,6 @@ import { graphql, Link } from 'gatsby';
 import Img, { GatsbyImageProps } from 'gatsby-image';
 import React from 'react';
 import Layout from '../components/Layout';
-import theme from '../theme';
 
 function HomePage({ data }) {
   const { heading, subHeading } = data.site.siteMetadata.hero;
@@ -20,21 +19,18 @@ function HomePage({ data }) {
           <ArticlesLabel>Latest Articles</ArticlesLabel>
           <ArticlesWrapper>
             {articles.map(({ node }) => (
-              <CardWrapper key={node.fields.slug}>
-                <Link to={node.fields.slug}>
-                  <CardImage
-                    fluid={
-                      node.frontmatter.featuredImage?.childImageSharp.fluid
-                    }
-                  />
-                  <CardTitle>{node.frontmatter.title}</CardTitle>
-                </Link>
+              <CardWrapper key={node.fields.slug} to={node.fields.slug}>
+                <CardImage
+                  fluid={node.frontmatter.featuredImage?.childImageSharp.fluid}
+                />
+                <CardTitle>{node.frontmatter.title}</CardTitle>
+                <CardSubtitle>
+                  {node.frontmatter.date} &middot; {node.timeToRead} min read
+                </CardSubtitle>
               </CardWrapper>
             ))}
           </ArticlesWrapper>
-          <ArticlesLinkWrapper>
-            <Link to="/articles">All Articles →</Link>
-          </ArticlesLinkWrapper>
+          <ArticlesLink to="/articles">All Articles →</ArticlesLink>
         </>
       )}
     </Layout>
@@ -65,8 +61,10 @@ export const pageQuery = graphql`
           fields {
             slug
           }
+          timeToRead
           frontmatter {
             title
+            date(formatString: "MMMM DD, YYYY")
             featuredImage {
               childImageSharp {
                 fluid {
@@ -92,17 +90,26 @@ const CardTitle = styled.h3`
   font-size: 1.5rem;
   line-height: 2rem;
   margin-top: 1rem;
-  margin-bottom: 1.5rem;
-  font-family: ${theme.fonts.serif};
-  &:hover {
-    color: var(--color-accent);
-  }
+  font-family: var(--font-serif);
 `;
 
-const CardWrapper = styled.article`
-  a {
-    text-decoration: none;
-    color: inherit;
+const CardSubtitle = styled.div`
+  color: var(--color-muted);
+  margin-top: 0.25rem;
+  font-size: 1rem;
+`;
+
+const CardWrapper = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    color: var(--color-accent);
+    & .gatsby-image-wrapper {
+      transition: all 0.2s linear;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px var(--color-hover);
+    }
   }
 `;
 
@@ -113,8 +120,8 @@ const BannerWrapper = styled.section`
 `;
 
 const BannerHeading = styled.h1`
-  font-family: ${theme.fonts.serif};
-  font-size: 2.25rem;
+  font-family: var(--font-serif);
+  font-size: 3rem;
   line-height: 2.5rem;
 
   @media (min-width: 768px) {
@@ -129,8 +136,8 @@ const BannerSubHeading = styled.h2`
 `;
 
 const ArticlesLabel = styled.h3`
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   margin-bottom: 1.5rem;
 `;
 
@@ -144,21 +151,17 @@ const ArticlesWrapper = styled.div`
   }
 `;
 
-const ArticlesLinkWrapper = styled.div`
-  margin-top: 1rem;
+const ArticlesLink = styled(Link)`
+  margin-top: 4rem;
   margin-bottom: 6rem;
   display: inline-block;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  box-shadow: 0 2px 0;
   color: inherit;
-
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
   &:hover {
     color: var(--color-accent);
-  }
-  a {
-    color: inherit;
-    text-decoration: none;
   }
 `;
 

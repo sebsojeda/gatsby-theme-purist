@@ -5,7 +5,7 @@ import theme from './src/theme';
 import { kebabCase } from './src/utils';
 
 function setColorsByTheme() {
-  const colors = '🌈';
+  const theme = '🌈';
 
   let colorMode = 'light';
 
@@ -20,18 +20,31 @@ function setColorsByTheme() {
 
   const root = document.documentElement;
 
-  Object.entries(colors[colorMode]).forEach(([name, color]) => {
+  // Set font variables
+  Object.entries(theme.fonts).forEach(([name, font]) => {
+    const cssVarName = `--font-${'kebabCase'(name)}`;
+    root.style.setProperty(cssVarName, font);
+  });
+
+  // Set color variables
+  Object.entries(theme.modes[colorMode].colors).forEach(([name, color]) => {
     const cssVarName = `--color-${'kebabCase'(name)}`;
+    root.style.setProperty(cssVarName, color);
+  });
+
+  // Set prism variables
+  Object.entries(theme.modes[colorMode].prism).forEach(([name, color]) => {
+    const cssVarName = `--prism-${'kebabCase'(name)}`;
     root.style.setProperty(cssVarName, color);
   });
 
   root.style.setProperty('--initial-color-mode', colorMode);
 }
 
-const Styles = () => {
+const ThemeScript = () => {
   const boundFn = String(setColorsByTheme)
-    .replace("'🌈'", JSON.stringify(theme.colors))
-    .replace("'kebabCase'", `(${kebabCase})`);
+    .replace("'🌈'", JSON.stringify(theme))
+    .replaceAll("'kebabCase'", `(${kebabCase})`);
 
   let calledFunction = `(${boundFn})()`;
   minify(calledFunction).then((m) => (calledFunction = m.code));
@@ -40,7 +53,7 @@ const Styles = () => {
 };
 
 export const onRenderBody = ({ setPreBodyComponents }) => {
-  setPreBodyComponents(<Styles />);
+  setPreBodyComponents(<ThemeScript />);
 };
 
 export const wrapRootElement = ({ element }) => {

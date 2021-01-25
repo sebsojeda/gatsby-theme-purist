@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   margin-left: auto;
   margin-right: auto;
   & > * {
-    margin: 2.5rem auto;
+    margin: 2.75rem auto;
   }
 `;
 

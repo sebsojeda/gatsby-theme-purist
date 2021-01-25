@@ -38,6 +38,7 @@ const NavLink = styled(Link)`
   line-height: 1.75rem;
   text-decoration: none;
   color: inherit;
+  transition: all 0.2s ease-in-out;
   &:hover {
     color: var(--color-accent);
   }
@@ -64,13 +65,15 @@ const NavWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  & > * {
-    margin: 0 1rem;
+  @media (min-width: 768px) {
+    & > a {
+      margin: 0 1rem;
+    }
   }
 `;
 
 const HorizontalRule = styled.hr`
-  border-color: var(--color-muted);
+  border: 1px solid var(--color-muted);
   display: inline;
   margin: 1.25rem 5rem;
   @media (min-width: 640px) {

@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
-import theme from '../../theme';
 
 const InlineCode = styled.code`
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
-  font-family: ${theme.fonts.monospace};
+  font-family: var(--font-monospace);
   position: relative;
   &::after {
     opacity: 0.15;
@@ -16,7 +15,7 @@ const InlineCode = styled.code`
     left: 0;
     position: absolute;
     border-radius: 0.25rem;
-    background-color: var(--color-muted);
+    background-color: var(--prism-inline-code);
     z-index: -999;
   }
 `;

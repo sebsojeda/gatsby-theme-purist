@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import emotionReset from 'emotion-reset';
-import theme from '../theme';
 
 const global = css`
   ${emotionReset}
@@ -9,11 +8,11 @@ const global = css`
    * Set global styles
    */
   body {
-    transition: color 0.3s ease-in-out;
-    transition: background-color 0.3s ease-in-out;
+    transition: color 0.2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
     color: var(--color-text);
     background-color: var(--color-background);
-    font-family: ${theme.fonts.sans};
+    font-family: var(--font-sans);
   }
   .footnotes ol {
     margin: 2.5rem 0;
@@ -34,7 +33,7 @@ const global = css`
   }
 
   /*
-   * Remove box shadow from images
+   * Fix box shadow for images
    * see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-image
    */
   .gatsby-resp-image-background-image,
@@ -44,6 +43,10 @@ const global = css`
     &:hover {
       box-shadow: none !important;
     }
+  }
+  .gatsby-image-wrapper {
+    border-radius: 0.375rem;
+    box-shadow: 0 7px 18px var(--color-hover);
   }
 
   /*

@@ -38,8 +38,4 @@ export const TableData = styled.td`
   padding: 0.75rem;
 `;
 
-export const TableRow = styled.tr`
-  &:nth-of-type(even) {
-    background-color: var(--color-gray);
-  }
-`;
+export const TableRow = styled.tr``;

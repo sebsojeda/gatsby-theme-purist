@@ -184,24 +184,68 @@ export default {
     monospace:
       'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
   },
-  colors: {
+  modes: {
     light: {
-      background: 'hsl(0deg, 0%, 100%)',
-      text: 'hsl(222deg, 22%, 5%)',
-      info: 'hsl(245deg, 100%, 60%)',
-      infoBackground: 'hsl(210deg, 55%, 92%)',
-      accent: 'hsl(245deg, 100%, 60%)',
-      muted: 'hsl(225deg, 12%, 40%)',
-      gray: 'hsl(225deg, 25%, 97%)',
+      colors: {
+        background: 'hsl(0deg, 0%, 100%)',
+        text: 'hsl(222deg, 22%, 5%)',
+        info: 'hsl(245deg, 100%, 60%)',
+        infoBackground: 'hsl(210deg, 55%, 92%)',
+        accent: 'hsl(245deg, 100%, 60%)',
+        muted: '#73737d',
+        hover: '#dbdbdb',
+      },
+      prism: {
+        inlineCode: 'hsl(225deg, 12%, 40%)',
+        background: 'hsl(225deg, 25%, 97%)',
+        text: '#2a2a2a',
+        highlight: 'hsl(225deg, 25%, 93%)',
+        border: '#bf00b8',
+        comment: '#467790',
+        number: '#bf00b8',
+        boolean: '#bf00b8',
+        string: '#651fff',
+        keyword: '#651fff',
+        operator: '#651fff',
+        property: '#da0079',
+        tag: '#da0079',
+        function: '#3d5afe',
+        builtin: '#3d5afe',
+        regex: '#3600d6',
+        deleted: 'rgb(255, 85, 85)',
+        attrName: '#aa00ff',
+      },
     },
     dark: {
-      background: 'hsl(210deg, 30%, 8%)',
-      text: 'hsl(0deg, 0%, 100%)',
-      info: 'hsl(230deg, 100%, 67%)',
-      infoBackground: 'hsl(210deg, 38%, 15%)',
-      accent: 'hsl(333deg, 100%, 52%)',
-      muted: 'hsl(210deg, 14%, 66%)',
-      gray: 'hsl(210deg, 30%, 12%)',
+      colors: {
+        background: 'hsl(210deg, 30%, 8%)',
+        text: 'hsl(0deg, 0%, 100%)',
+        info: 'hsl(230deg, 100%, 67%)',
+        infoBackground: 'hsl(210deg, 38%, 15%)',
+        accent: 'hsl(333deg, 100%, 52%)',
+        muted: '#73737d',
+        hover: '#1a1a1a',
+      },
+      prism: {
+        inlineCode: 'hsl(210deg, 14%, 66%)',
+        background: 'hsl(210deg, 30%, 12%)',
+        text: '#fff',
+        highlight: 'hsl(210deg, 30%, 18%)',
+        border: '#ffd600',
+        comment: '#6c8998',
+        number: '#ffd600',
+        boolean: '#ffd600',
+        string: 'rgb(155, 109, 255)',
+        keyword: 'rgb(155, 109, 255)',
+        operator: 'rgb(155, 109, 255)',
+        property: '#ff39a8',
+        tag: '#ff39a8',
+        function: 'rgb(0, 190, 255)',
+        builtin: 'rgb(0, 190, 255)',
+        regex: '#ffd700',
+        deleted: '#ff5555',
+        attrName: '#c653ff',
+      },
     },
   },
 };
@@ -220,12 +264,43 @@ export default {
 
 ### Site Metadata
 
-| Key             | Required | Type   | Description                                                                    |
-| --------------- | -------- | ------ | ------------------------------------------------------------------------------ |
-| name            | required | String | The name to display in the navigation.                                         |
-| defaultTitle    | required | String | Fallback text for the \<title\>\</title\> tag.                                 |
-| titleTemplate   | required | String | Template used for the \<title\>\</title\> tag.                                 |
-| description     | required | String | Used for the \<meta name="description"\>\</meta\> tag.                         |
-| hero.heading    | required | String | Text displayed on the homepage hero.                                           |
-| hero.subHeading | optional | String | Subtext displayed on the homepage hero.                                        |
-| social          | optional | Array  | List of objects containing a `name` and a `url` to include in the site footer. |
+| Key             | Required | Type   | Description                                                                                                     |
+| --------------- | -------- | ------ | --------------------------------------------------------------------------------------------------------------- |
+| name            | required | String | The name to display in the navigation.                                                                          |
+| defaultTitle    | required | String | Fallback text for the \<title\>\</title\> tag.                                                                  |
+| titleTemplate   | required | String | Template used for the \<title\>\</title\> tag.                                                                  |
+| description     | required | String | Used for the \<meta name="description"\>\</meta\> tag.                                                          |
+| hero.heading    | required | String | Text displayed on the homepage hero.                                                                            |
+| hero.subHeading | optional | String | Subtext displayed on the homepage hero.                                                                         |
+| social          | optional | Array  | List of objects containing a `name` and a `url` to link in the footer. See a list of [supported icons](#below). |
+
+#### Supported Icons
+
+The following icons are supported, along with a `default` option as well.
+
+```jsx
+const icons = {
+  behance: (props) => <Behance {...props} />,
+  codePen: (props) => <Codepen {...props} />,
+  devTo: (props) => <DevTo {...props} />,
+  discord: (props) => <Discord {...props} />,
+  dribble: (props) => <Dribbble {...props} />,
+  facebook: (props) => <Facebook {...props} />,
+  flickr: (props) => <Flickr {...props} />,
+  github: (props) => <Github {...props} />,
+  instagram: (props) => <Instagram {...props} />,
+  linkedin: (props) => <Linkedin {...props} />,
+  medium: (props) => <Medium {...props} />,
+  patreon: (props) => <Patreon {...props} />,
+  paypal: (props) => <Paypal {...props} />,
+  reddit: (props) => <Reddit {...props} />,
+  snapchat: (props) => <Snapchat {...props} />,
+  stackOverflow: (props) => <StackOverflow {...props} />,
+  tumblr: (props) => <Tumblr {...props} />,
+  twitch: (props) => <Twitch {...props} />,
+  twitter: (props) => <Twitter {...props} />,
+  unsplash: (props) => <Unsplash {...props} />,
+  youtube: (props) => <Youtube {...props} />,
+  default: (props) => <Globe {...props} />,
+};
+```

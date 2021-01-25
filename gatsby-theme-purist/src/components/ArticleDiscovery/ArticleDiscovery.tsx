@@ -1,30 +1,33 @@
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import React from 'react';
-import theme from '../../theme';
 
 function ArticleDiscovery({ previous, next }: ArticleDiscoveryProps) {
   return (
-    <ArticleDiscoveryWrapper>
-      {previous && (
-        <PreviousWrapper>
-          <Label>Older:</Label>
-          <ArticleDate>{previous.frontmatter.date}</ArticleDate>
-          <Title>
-            <Link to={previous.fields.slug}>{previous.frontmatter.title}</Link>
-          </Title>
-        </PreviousWrapper>
-      )}
-      {next && (
-        <NextWrapper>
-          <Label>Newer:</Label>
-          <ArticleDate>{next.frontmatter.date}</ArticleDate>
-          <Title>
-            <Link to={next.fields.slug}>{next.frontmatter.title}</Link>
-          </Title>
-        </NextWrapper>
-      )}
-    </ArticleDiscoveryWrapper>
+    <React.Fragment>
+      <FooterBorder>More Articles</FooterBorder>
+      <ArticleDiscoveryWrapper>
+        {previous && (
+          <PreviousWrapper to={previous.fields.slug}>
+            <Label>Previous:</Label>
+            <Title>{previous.frontmatter.title}</Title>
+            <Subtitle>
+              {previous.frontmatter.date} &middot; {previous.timeToRead} min
+              read
+            </Subtitle>
+          </PreviousWrapper>
+        )}
+        {next && (
+          <NextWrapper to={next.fields.slug}>
+            <Label>Next:</Label>
+            <Title>{next.frontmatter.title}</Title>
+            <Subtitle>
+              {next.frontmatter.date} &middot; {next.timeToRead} min read
+            </Subtitle>
+          </NextWrapper>
+        )}
+      </ArticleDiscoveryWrapper>
+    </React.Fragment>
   );
 }
 
@@ -33,48 +36,67 @@ interface ArticleDiscoveryProps {
   next?: any;
 }
 
+const FooterBorder = styled.div`
+  margin-bottom: 5rem;
+  color: var(--color-muted);
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
+  &::after {
+    background-color: var(--color-muted);
+    content: '';
+    width: 100%;
+    height: 1px;
+    margin: 0.5rem 0 0 3rem;
+  }
+`;
+
 const ArticleDiscoveryWrapper = styled.div`
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  margin: 5rem auto;
+  margin: 0 auto 5rem auto;
   max-width: 48rem;
 `;
 
 const Label = styled.div`
   font-size: 1.25rem;
   line-height: 1.75rem;
+  color: var(--color-text);
 `;
 
-const ArticleDate = styled.div`
-  margin: 0.75rem 0 0.25rem 0;
+const Subtitle = styled.div`
+  margin-top: 0.5rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
   color: var(--color-muted);
+  font-size: 1rem;
 `;
 
-const Title = styled.h4`
+const Title = styled.div`
   font-size: 1.5rem;
   line-height: 2rem;
-  font-family: ${theme.fonts.serif};
+  font-family: var(--font-serif);
   display: inline-block;
-  box-shadow: 0 2px 0;
   box-sizing: border-box;
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+`;
+
+const LinkWrapper = styled(Link)`
+  text-decoration: none;
+  color: inherit;
   &:hover {
     color: var(--color-accent);
   }
 `;
 
-const PreviousWrapper = styled.div`
+const PreviousWrapper = styled(LinkWrapper)`
   grid-column-start: 1;
   text-align: left;
 `;
 
-const NextWrapper = styled.div`
+const NextWrapper = styled(LinkWrapper)`
   grid-column-start: 2;
   text-align: right;
 `;

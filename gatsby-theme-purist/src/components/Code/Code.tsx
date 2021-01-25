@@ -2,14 +2,11 @@ import { Copy } from '@emotion-icons/boxicons-regular';
 import styled from '@emotion/styled';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import React, { useState } from 'react';
-import theme from '../../theme';
 import prism from '../../theme/prism';
 import { calculateLinesToHighlight, copyToClipboard } from '../../utils';
-import { useTheme } from '../ThemeContext';
 
 function Code({ className, metastring, children }: CodeProps) {
   const language = className?.replace(/language-/, '') || 'text';
-  const { colorMode } = useTheme();
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   const [copied, setCopied] = useState(false);
 
@@ -23,15 +20,8 @@ function Code({ className, metastring, children }: CodeProps) {
   return (
     <React.Fragment>
       <Wrapper>
-        <LanguageName style={{ ...prism[colorMode]?.plain }}>
-          {language}
-        </LanguageName>
-        <CopyWrapper
-          href="javascript:void(0)"
-          copied={copied}
-          style={{ ...prism[colorMode]?.highlight }}
-          onClick={handleCopyCode}
-        >
+        <LanguageName>{language}</LanguageName>
+        <CopyWrapper href="#" copied={copied} onClick={handleCopyCode}>
           {copied ? 'Copied' : <CopyIcon size="1.25rem" />}
         </CopyWrapper>
       </Wrapper>
@@ -40,7 +30,7 @@ function Code({ className, metastring, children }: CodeProps) {
           {...defaultProps}
           code={children as string}
           language={language as Language}
-          theme={colorMode && { ...prism[colorMode] }}
+          theme={prism}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <CodeWrapper className={className} style={{ ...style }}>
@@ -51,7 +41,6 @@ function Code({ className, metastring, children }: CodeProps) {
                   <CodeLine
                     key={index}
                     highlight={shouldHighlightLine(index)}
-                    highlightStyles={{ ...prism[colorMode]?.highlight }}
                     {...lineProps}
                   >
                     {line.map((token, key) => (
@@ -76,10 +65,6 @@ interface CodeProps {
 
 interface CodeLineProps {
   highlight: boolean;
-  highlightStyles: {
-    backgroundColor: string;
-    borderColor: string;
-  };
 }
 
 interface CopyWrapperProps {
@@ -88,16 +73,17 @@ interface CopyWrapperProps {
 
 const CopyWrapper = styled.a<CopyWrapperProps>`
   text-decoration: none;
-  color: inherit;
+  color: var(--prism-text);
+  background-color: var(--prism-highlight);
   position: absolute;
   border-radius: 0.375rem;
   padding: 0.5rem;
   top: 0.5rem;
   right: 0.5rem;
   opacity: ${({ copied }) => (copied ? 1 : 0.25)};
-  font-family: ${theme.fonts.monospace};
+  font-family: var(--font-monospace);
   font-size: 1rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   &:hover,
   &:focus {
     opacity: 1;
@@ -111,15 +97,14 @@ const CopyIcon = styled(Copy)`
 `;
 
 const CodeLine = styled.div<CodeLineProps>`
-  background-color: ${({ highlight, highlightStyles }) =>
-    highlight && highlightStyles.backgroundColor};
+  background-color: ${({ highlight }) =>
+    highlight ? 'var(--prism-highlight)' : 'initial'};
   margin: ${({ highlight }) => (highlight ? '0 -1.5rem' : 'initial')};
   padding: ${({ highlight }) =>
     highlight ? '0 calc(1.5rem - 2px)' : 'initial'};
   box-sizing: border-box;
   border-left: solid 2px
-    ${({ highlight, highlightStyles }) =>
-      highlight ? highlightStyles.borderColor : 'initial'};
+    ${({ highlight }) => (highlight ? 'var(--prism-border)' : 'initial')};
 `;
 
 const Wrapper = styled.div`
@@ -136,7 +121,8 @@ const LanguageName = styled.div`
   font-size: 1rem;
   line-height: 1rem;
   user-select: none;
-  font-family: ${theme.fonts.monospace};
+  font-family: var(--font-monospace);
+  background-color: var(--prism-background);
   color: var(--color-muted);
 `;
 
@@ -145,7 +131,7 @@ const CodeWrapper = styled.pre`
   float: left;
   min-width: calc(100% - 3rem);
   padding: 1.5rem;
-  font-family: ${theme.fonts.monospace};
+  font-family: var(--font-monospace);
   & > * {
     display: flex;
   }

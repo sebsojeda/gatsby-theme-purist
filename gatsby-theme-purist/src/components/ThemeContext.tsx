@@ -1,4 +1,4 @@
-import React, { useContext, useLayoutEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import theme from '../theme';
 import { kebabCase } from '../utils';
 
@@ -12,7 +12,7 @@ const useTheme = () => useContext(ThemeContext);
 function ThemeProvider({ children }) {
   const [colorMode, rawSetColorMode] = useState(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const root = window.document.documentElement;
     const initialColorValue = root.style.getPropertyValue(
       '--initial-color-mode',
@@ -21,14 +21,23 @@ function ThemeProvider({ children }) {
   }, []);
 
   const contextValue = useMemo(() => {
-    function setColorMode(mode) {
+    function setColorMode(mode: string) {
       const root = window.document.documentElement;
 
       window.localStorage.setItem('color-mode', mode);
 
-      Object.entries(theme.colors[mode]).forEach(
+      // Set color variables
+      Object.entries(theme.modes[mode].colors).forEach(
         ([name, color]: [string, string]) => {
           const cssVarName = `--color-${kebabCase(name)}`;
+          root.style.setProperty(cssVarName, color);
+        },
+      );
+
+      // Set prism variables
+      Object.entries(theme.modes[mode].prism).forEach(
+        ([name, color]: [string, string]) => {
+          const cssVarName = `--prism-${kebabCase(name)}`;
           root.style.setProperty(cssVarName, color);
         },
       );

@@ -1,122 +1,86 @@
 export default {
-  light: {
-    highlight: {
-      backgroundColor: 'hsl(225deg, 25%, 93%)',
-      borderColor: '#bf00b8',
-    },
-    plain: {
-      backgroundColor: 'hsl(225deg, 25%, 97%)',
-      text: '#2a2a2a',
-    },
-    styles: [
-      {
-        types: ['comment', 'prolog', 'doctype', 'cdata'],
-        style: {
-          color: '#467790',
-        },
-      },
-      {
-        types: ['number', 'boolean'],
-        style: {
-          color: '#bf00b8',
-        },
-      },
-      {
-        types: ['string', 'keyword', 'operator'],
-        style: {
-          color: '#651fff',
-        },
-      },
-      {
-        types: ['property', 'tag'],
-        style: {
-          color: '#da0079',
-        },
-      },
-      {
-        types: ['function', 'builtin'],
-        style: {
-          color: '#3d5afe',
-        },
-      },
-      {
-        types: ['regex'],
-        style: {
-          color: '#3600d6',
-        },
-      },
-      {
-        types: ['deleted'],
-        style: {
-          color: 'rgb(255, 85, 85)',
-        },
-      },
-      {
-        types: ['attr-name'],
-        style: {
-          color: '#aa00ff',
-        },
-      },
-    ],
+  plain: {
+    backgroundColor: 'var(--prism-background)',
+    text: 'var(--prism-text)',
   },
-  dark: {
-    highlight: {
-      backgroundColor: 'hsl(210deg, 30%, 18%)',
-      borderColor: '#ffd600',
+  styles: [
+    {
+      types: ['comment'],
+      style: {
+        color: 'var(--prism-comment)',
+      },
     },
-    plain: {
-      backgroundColor: 'hsl(210deg, 30%, 12%)',
-      text: '#fff',
+    {
+      types: ['number'],
+      style: {
+        color: 'var(--prism-number)',
+      },
     },
-    styles: [
-      {
-        types: ['comment', 'prolog', 'doctype', 'cdata'],
-        style: {
-          color: '#6c8998',
-        },
+    {
+      types: ['boolean'],
+      style: {
+        color: 'var(--prism-boolean)',
       },
-      {
-        types: ['number', 'boolean'],
-        style: {
-          color: '#ffd600',
-        },
+    },
+    {
+      types: ['string'],
+      style: {
+        color: 'var(--prism-string)',
       },
-      {
-        types: ['string', 'keyword', 'operator'],
-        style: {
-          color: 'rgb(155, 109, 255)',
-        },
+    },
+    {
+      types: ['keyword'],
+      style: {
+        color: 'var(--prism-keyword)',
       },
-      {
-        types: ['property', 'tag'],
-        style: {
-          color: '#ff39a8',
-        },
+    },
+    {
+      types: ['operator'],
+      style: {
+        color: 'var(--prism-operator)',
       },
-      {
-        types: ['function', 'builtin'],
-        style: {
-          color: 'rgb(0, 190, 255)',
-        },
+    },
+    {
+      types: ['property'],
+      style: {
+        color: 'var(--prism-property)',
       },
-      {
-        types: ['regex'],
-        style: {
-          color: '#ffd700',
-        },
+    },
+    {
+      types: ['tag'],
+      style: {
+        color: 'var(--prism-tag)',
       },
-      {
-        types: ['deleted'],
-        style: {
-          color: '#ff5555',
-        },
+    },
+    {
+      types: ['function'],
+      style: {
+        color: 'var(--prism-function)',
       },
-      {
-        types: ['attr-name'],
-        style: {
-          color: '#c653ff',
-        },
+    },
+    {
+      types: ['builtin'],
+      style: {
+        color: 'var(--prism-builtin)',
       },
-    ],
-  },
+    },
+    {
+      types: ['regex'],
+      style: {
+        color: 'var(--prism-regex)',
+      },
+    },
+    {
+      types: ['deleted'],
+      style: {
+        color: 'var(--prism-deleted)',
+      },
+    },
+    {
+      types: ['attr-name'],
+      style: {
+        color: 'var(--prism-attr-name)',
+      },
+    },
+  ],
 };

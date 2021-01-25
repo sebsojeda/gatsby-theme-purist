@@ -10,11 +10,11 @@ module.exports = {
     },
     social: [
       {
-        name: 'Twitter',
+        name: 'twitter',
         url: 'https://twitter.com/sebsojeda',
       },
       {
-        name: 'GitHub',
+        name: 'github',
         url: 'https://github.com/sebsojeda/gatsby-theme-purist',
       },
     ],

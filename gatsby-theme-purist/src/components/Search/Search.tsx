@@ -93,7 +93,7 @@ const SearchInputWrapper = styled.div<SearchInputWrapperProps>`
   align-items: center;
   justify-content: center;
   padding: 0 0.75rem;
-  border: 1px solid var(--color-muted);
+  border: 1px solid var(--color-text);
   border-radius: ${({ rounded }) => (rounded ? '24px' : '24px 24px 0 0')};
 `;
 

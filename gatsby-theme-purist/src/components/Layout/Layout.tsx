@@ -39,7 +39,7 @@ const query = graphql`
 const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 95%;
+  width: calc(100% - 2rem);
 
   @media (min-width: 640px) {
     max-width: 640px;

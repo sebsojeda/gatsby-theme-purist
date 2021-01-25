@@ -3,7 +3,6 @@ import { graphql, Link } from 'gatsby';
 import React from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import theme from '../theme';
 
 function Articles({ data }) {
   return (
@@ -22,9 +21,11 @@ function Articles({ data }) {
                     const { slug } = node.fields;
                     return (
                       <li key={node.id}>
-                        <span>{date}</span>
-                        <LinkWrapper>
-                          <Link to={slug}>{title}</Link>
+                        <LinkWrapper to={slug}>
+                          <div>{title}</div>
+                          <Subtitle>
+                            {date} &middot; {node.timeToRead} min read
+                          </Subtitle>
                         </LinkWrapper>
                       </li>
                     );
@@ -55,9 +56,10 @@ export const pageQuery = graphql`
             fields {
               slug
             }
+            timeToRead
             frontmatter {
               title
-              date(formatString: "MM/DD/YY")
+              date(formatString: "MMMM DD, YYYY")
             }
           }
         }
@@ -76,17 +78,20 @@ const ArticlesWrapper = styled.div`
   }
 `;
 
-const LinkWrapper = styled.span`
-  margin-left: 1rem;
-  box-shadow: 0 2px 0;
-  font-family: ${theme.fonts.serif};
+const LinkWrapper = styled(Link)`
+  display: inline-block;
+  font-family: var(--font-serif);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: inherit;
   &:hover {
     color: var(--color-accent);
   }
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+`;
+
+const Subtitle = styled.div`
+  font-size: 1rem;
+  color: var(--color-muted);
 `;
 
 const Titles = styled.ul`
