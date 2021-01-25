@@ -22,7 +22,7 @@ function Articles({ data }) {
                     return (
                       <li key={node.id}>
                         <LinkWrapper to={slug}>
-                          <div>{title}</div>
+                          <Title>{title}</Title>
                           <Subtitle>
                             {date} &middot; {node.timeToRead} min read
                           </Subtitle>
@@ -80,13 +80,16 @@ const ArticlesWrapper = styled.div`
 
 const LinkWrapper = styled(Link)`
   display: inline-block;
-  font-family: var(--font-serif);
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   color: inherit;
   &:hover {
     color: var(--color-accent);
   }
+`;
+
+const Title = styled.div`
+  font-family: var(--font-serif);
 `;
 
 const Subtitle = styled.div`
