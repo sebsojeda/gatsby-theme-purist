@@ -9,8 +9,10 @@ function Header({ name }: HeaderProps) {
   return (
     <Wrapper>
       <NavLink to="/">
-        <Logo />
-        <SiteName>{name}</SiteName>
+        <Flex justifyContent={'flex-start'}>
+          <Logo />
+          <SiteName>{name}</SiteName>
+        </Flex>
       </NavLink>
       <Grid>
         <Flex justifyContent={'space-between'}>
@@ -54,7 +56,7 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, max-content));
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 `;
 
 const Flex = styled.div<FlexProps>`
