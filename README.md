@@ -255,12 +255,12 @@ export default {
 
 ### Article
 
-| Key           | Required | Type    | Description                                                       |
-| ------------- | -------- | ------- | ----------------------------------------------------------------- |
-| title         | required | String  | Used as the article title.                                        |
-| date          | required | Date    | YYYY-MM-DD format.                                                |
-| featuredImage | optional | File    | The image to be featured on the article.                          |
-| draft         | required | Boolean | If draft is `true`, the article will not be rendered on the site. |
+| Key           | Required | Type    | Description                                                         |
+| ------------- | -------- | ------- | ------------------------------------------------------------------- |
+| title         | required | String  | Used as the article title.                                          |
+| date          | required | Date    | YYYY-MM-DD format.                                                  |
+| featuredImage | optional | File    | The image to be featured on the article.                            |
+| draft         | required | Boolean | If draft is `true`, the article will not be rendered in production. |
 
 ### Site Metadata
 

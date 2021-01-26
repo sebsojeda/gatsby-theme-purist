@@ -45,7 +45,7 @@ export const pageQuery = graphql`
     allMdx(
       filter: {
         fileAbsolutePath: { regex: "/content/" }
-        frontmatter: { draft: { ne: true } }
+        fields: { draft: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {

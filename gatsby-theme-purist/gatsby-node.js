@@ -62,7 +62,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       allMdx(
         filter: {
           fileAbsolutePath: { regex: "/content/" }
-          frontmatter: { draft: { ne: true } }
+          fields: { draft: { ne: true } }
         }
         limit: 1000
         sort: { fields: [frontmatter___date], order: ASC }
@@ -79,7 +79,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               date(formatString: "MMMM Do, YYYY")
               featuredImage {
                 childImageSharp {
-                  fluid {
+                  fluid(quality: 100) {
                     ${GatsbyImageSharpFluid}
                   }
                 }

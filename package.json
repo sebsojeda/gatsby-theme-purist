@@ -7,11 +7,15 @@
   "scripts": {
     "build": "yarn workspace site build",
     "dev": "yarn start",
-    "lint": "eslint --ignore-path .gitignore .",
+    "lint": "eslint .",
     "start": "yarn workspace site develop",
     "clean": "yarn workspace site clean",
     "bootstrap": "yarn lerna bootstrap",
     "publish": "yarn lerna version && yarn lerna publish"
+  },
+  "hooks": {
+    "pre-commit": "yarn lint",
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "workspaces": [
     "gatsby-theme-purist",

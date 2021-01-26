@@ -51,7 +51,7 @@ export const pageQuery = graphql`
     latestArticles: allMdx(
       filter: {
         fileAbsolutePath: { regex: "/content/" }
-        frontmatter: { draft: { ne: true } }
+        fields: { draft: { ne: true } }
       }
       limit: 2
       sort: { fields: [frontmatter___date], order: DESC }
@@ -69,7 +69,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM Do, YYYY")
             featuredImage {
               childImageSharp {
-                fluid {
+                fluid(quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }

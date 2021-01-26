@@ -23,6 +23,7 @@ import {
 } from '@emotion-icons/boxicons-logos';
 import { Globe } from '@emotion-icons/boxicons-regular';
 import styled from '@emotion/styled';
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 
 const components = {
@@ -51,9 +52,13 @@ const components = {
 };
 
 function Footer({ social }: FooterProps) {
+  const { site } = useStaticQuery(query);
+
   return (
     <Wrapper>
-      <span>&copy; {new Date().getFullYear()}</span>
+      <span>
+        &copy; {new Date().getFullYear()} {site.siteMetadata.name}
+      </span>
       <IconsWrapper>
         {social.map((data) => (
           <SocialIcon key={data.url} href={data.url}>
@@ -66,6 +71,16 @@ function Footer({ social }: FooterProps) {
     </Wrapper>
   );
 }
+
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        name
+      }
+    }
+  }
+`;
 
 interface FooterProps {
   social: { name: string; url: string }[];

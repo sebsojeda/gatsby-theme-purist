@@ -6,9 +6,22 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
+      resolve: 'gatsby-plugin-draft',
+      options: {
+        nodeType: 'Mdx',
+        publishDraft: process.env.NODE_ENV !== 'production',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-smartypants',
+            options: {
+              dashes: 'oldschool',
+            },
+          },
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {
@@ -60,7 +73,7 @@ module.exports = {
           {
             name: 'draft',
             indexed: false,
-            resolver: 'frontmatter.draft',
+            resolver: 'fields.draft',
             store: true,
           },
         ],
