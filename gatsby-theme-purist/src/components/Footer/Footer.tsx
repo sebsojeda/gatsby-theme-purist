@@ -52,20 +52,18 @@ const components = {
 
 function Footer({ social }: FooterProps) {
   return (
-    <FooterWrapper>
+    <Wrapper>
       <span>&copy; {new Date().getFullYear()}</span>
       <IconsWrapper>
         {social.map((data) => (
-          <React.Fragment key={data.url}>
-            <SocialIcon key={data.url} href={data.url}>
-              {components[data.name]
-                ? components[data.name]({ height: '1.25rem' })
-                : components.default({ height: '1.25rem' })}
-            </SocialIcon>
-          </React.Fragment>
+          <SocialIcon key={data.url} href={data.url}>
+            {components[data.name]
+              ? components[data.name]({ height: '20' })
+              : components.default({ height: '20' })}
+          </SocialIcon>
         ))}
       </IconsWrapper>
-    </FooterWrapper>
+    </Wrapper>
   );
 }
 
@@ -78,12 +76,6 @@ const IconsWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 4.5rem;
-  & > * {
-    margin-left: 1.5rem;
-    &:first-of-type {
-      margin-left: 0;
-    }
-  }
   @media (min-width: 768px) {
     margin-top: 0;
   }
@@ -93,17 +85,23 @@ const SocialIcon = styled.a`
   color: var(--color-muted);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
+  margin: 0 1.5rem;
   &:hover {
     color: var(--color-text);
   }
+  &:first-of-type {
+    margin-left: 0;
+  }
+  &:last-of-type {
+    margin-right: 0;
+  }
 `;
 
-const FooterWrapper = styled.footer`
+const Wrapper = styled.footer`
   border-top: 1px solid var(--color-muted);
   font-size: 1.125rem;
   line-height: 1.75rem;
-  margin: 0 auto 5rem auto;
-  padding-top: 4rem;
+  padding: 4rem 0 5rem 0;
   display: flex;
   align-items: center;
   justify-content: space-between;

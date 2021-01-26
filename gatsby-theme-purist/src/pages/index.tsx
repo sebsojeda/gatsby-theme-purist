@@ -10,24 +10,25 @@ function HomePage({ data }) {
 
   return (
     <Layout>
-      <BannerWrapper>
-        <BannerHeading>{heading}</BannerHeading>
-        {subHeading && <BannerSubHeading>{subHeading}</BannerSubHeading>}
-      </BannerWrapper>
+      <Banner>
+        <Heading>{heading}</Heading>
+        {subHeading && <SubHeading>{subHeading}</SubHeading>}
+      </Banner>
       {!!articles.length && (
         <>
-          <ArticlesLabel>Latest Articles</ArticlesLabel>
+          <Label>Latest Articles</Label>
           <ArticlesWrapper>
             {articles.map(({ node }) => (
-              <CardWrapper key={node.fields.slug} to={node.fields.slug}>
-                <CardImage
+              <Wrapper key={node.fields.slug} to={node.fields.slug}>
+                <Image
                   fluid={node.frontmatter.featuredImage?.childImageSharp.fluid}
                 />
-                <CardTitle>{node.frontmatter.title}</CardTitle>
-                <CardSubtitle>
+                <Title>{node.frontmatter.title}</Title>
+                <Excerpt>{node.excerpt}</Excerpt>
+                <Subtitle>
                   {node.frontmatter.date} &middot; {node.timeToRead} min read
-                </CardSubtitle>
-              </CardWrapper>
+                </Subtitle>
+              </Wrapper>
             ))}
           </ArticlesWrapper>
           <ArticlesLink to="/articles">All Articles →</ArticlesLink>
@@ -62,9 +63,10 @@ export const pageQuery = graphql`
             slug
           }
           timeToRead
+          excerpt
           frontmatter {
             title
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "MMMM Do, YYYY")
             featuredImage {
               childImageSharp {
                 fluid {
@@ -79,13 +81,19 @@ export const pageQuery = graphql`
   }
 `;
 
-const CardImage = styled(Img)<GatsbyImageProps>`
+const Excerpt = styled.div`
+  color: var(--color-muted);
+  margin-top: 1.25rem;
+  line-height: 1.25rem;
+`;
+
+const Image = styled(Img)<GatsbyImageProps>`
   object-fit: cover;
-  height: 20rem;
+  height: 16.5rem;
   border-radius: 0.375rem;
 `;
 
-const CardTitle = styled.h3`
+const Title = styled.h3`
   display: inline-block;
   font-size: 1.5rem;
   line-height: 2rem;
@@ -93,13 +101,14 @@ const CardTitle = styled.h3`
   font-family: var(--font-serif);
 `;
 
-const CardSubtitle = styled.div`
+const Subtitle = styled.div`
   color: var(--color-muted);
-  margin-top: 0.25rem;
+  margin-top: 1.25rem;
   font-size: 1rem;
+  opacity: 0.5;
 `;
 
-const CardWrapper = styled(Link)`
+const Wrapper = styled(Link)`
   text-decoration: none;
   color: inherit;
   transition: all 0.2s ease-in-out;
@@ -113,13 +122,13 @@ const CardWrapper = styled(Link)`
   }
 `;
 
-const BannerWrapper = styled.section`
+const Banner = styled.section`
   display: flex;
   flex-direction: column;
   padding: 10rem 0;
 `;
 
-const BannerHeading = styled.h1`
+const Heading = styled.h1`
   font-family: var(--font-serif);
   font-size: 3rem;
   line-height: 2.5rem;
@@ -130,12 +139,12 @@ const BannerHeading = styled.h1`
   }
 `;
 
-const BannerSubHeading = styled.h2`
+const SubHeading = styled.h2`
   font-size: 1.5rem;
   line-height: 2rem;
 `;
 
-const ArticlesLabel = styled.h3`
+const Label = styled.h3`
   font-size: 1.25rem;
   line-height: 1.75rem;
   margin-bottom: 1.5rem;

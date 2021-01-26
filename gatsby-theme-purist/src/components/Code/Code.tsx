@@ -10,7 +10,9 @@ function Code({ className, metastring, children }: CodeProps) {
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   const [copied, setCopied] = useState(false);
 
-  const handleCopyCode = (e) => {
+  const handleCopyCode = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
     e.preventDefault();
     setCopied(true);
     copyToClipboard(children as string);
@@ -18,14 +20,12 @@ function Code({ className, metastring, children }: CodeProps) {
   };
 
   return (
-    <React.Fragment>
-      <Wrapper>
-        <LanguageName>{language}</LanguageName>
-        <CopyWrapper href="#" copied={copied} onClick={handleCopyCode}>
-          {copied ? 'Copied' : <CopyIcon size="1.25rem" />}
-        </CopyWrapper>
-      </Wrapper>
-      <div className="gatsby-highlight">
+    <Wrapper>
+      <LanguageName>{language}</LanguageName>
+      <CopyButton copied={copied} onClick={handleCopyCode}>
+        {copied ? 'Copied' : <CopyIcon size="20" />}
+      </CopyButton>
+      <Pre>
         <Highlight
           {...defaultProps}
           code={children as string}
@@ -52,8 +52,8 @@ function Code({ className, metastring, children }: CodeProps) {
             </CodeWrapper>
           )}
         </Highlight>
-      </div>
-    </React.Fragment>
+      </Pre>
+    </Wrapper>
   );
 }
 
@@ -67,20 +67,21 @@ interface CodeLineProps {
   highlight: boolean;
 }
 
-interface CopyWrapperProps {
+interface CopyButtonProps {
   copied: boolean;
 }
 
-const CopyWrapper = styled.a<CopyWrapperProps>`
+const CopyButton = styled.button<CopyButtonProps>`
+  border: none;
   text-decoration: none;
   color: var(--prism-text);
   background-color: var(--prism-highlight);
   position: absolute;
   border-radius: 0.375rem;
   padding: 0.5rem;
-  top: 0.5rem;
-  right: 0.5rem;
-  opacity: ${({ copied }) => (copied ? 1 : 0.25)};
+  top: 0.75rem;
+  right: 0.75rem;
+  opacity: ${(p) => (p.copied ? 1 : 0.25)};
   font-family: var(--font-monospace);
   font-size: 1rem;
   transition: all 0.2s ease-in-out;
@@ -97,14 +98,13 @@ const CopyIcon = styled(Copy)`
 `;
 
 const CodeLine = styled.div<CodeLineProps>`
-  background-color: ${({ highlight }) =>
-    highlight ? 'var(--prism-highlight)' : 'initial'};
-  margin: ${({ highlight }) => (highlight ? '0 -1.5rem' : 'initial')};
-  padding: ${({ highlight }) =>
-    highlight ? '0 calc(1.5rem - 2px)' : 'initial'};
+  background-color: ${(p) =>
+    p.highlight ? 'var(--prism-highlight)' : 'initial'};
+  margin: ${(p) => (p.highlight ? '0 -1.5rem' : 'initial')};
+  padding: ${(p) => (p.highlight ? '0 calc(1.5rem - 2px)' : 'initial')};
   box-sizing: border-box;
   border-left: solid 2px
-    ${({ highlight }) => (highlight ? 'var(--prism-border)' : 'initial')};
+    ${(p) => (p.highlight ? 'var(--prism-border)' : 'initial')};
 `;
 
 const Wrapper = styled.div`
@@ -113,8 +113,8 @@ const Wrapper = styled.div`
 
 const LanguageName = styled.div`
   position: absolute;
-  right: 2rem;
-  top: -1.75rem;
+  right: 0;
+  top: -2rem;
   padding: 0.75rem;
   border-radius: 0.25rem 0.25rem 0 0;
   text-transform: uppercase;
@@ -126,7 +126,13 @@ const LanguageName = styled.div`
   color: var(--color-muted);
 `;
 
-const CodeWrapper = styled.pre`
+const Pre = styled.pre`
+  margin: 1.75rem 0;
+  overflow: auto;
+  border-radius: 0.375rem;
+`;
+
+const CodeWrapper = styled.code`
   user-select: none;
   float: left;
   min-width: calc(100% - 3rem);

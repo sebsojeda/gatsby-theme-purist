@@ -2,20 +2,16 @@ import { InfoCircle } from '@emotion-icons/boxicons-regular';
 import styled from '@emotion/styled';
 import React from 'react';
 
-function Blockquote({ children }: BlockquoteProps) {
+function Blockquote({ children }) {
   return (
-    <BlockquoteWrapper>
-      <InfoIcon size="1.5rem" />
-      <ChildrenWrapper>{children}</ChildrenWrapper>
-    </BlockquoteWrapper>
+    <Wrapper>
+      <InfoIcon size="24" />
+      <Children>{children}</Children>
+    </Wrapper>
   );
 }
 
-interface BlockquoteProps {
-  children?: React.ReactNode;
-}
-
-const BlockquoteWrapper = styled.div<BlockquoteProps>`
+const Wrapper = styled.div`
   position: relative;
   padding: 1.5rem;
   border-radius: 0 0.375rem 0.375rem 0.125rem;
@@ -33,7 +29,7 @@ const InfoIcon = styled(InfoCircle)`
   left: calc(0rem - 1.5rem);
 `;
 
-const ChildrenWrapper = styled.blockquote`
+const Children = styled.blockquote`
   & > * {
     margin: 2.5rem auto;
   }

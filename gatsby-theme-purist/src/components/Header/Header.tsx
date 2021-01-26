@@ -7,88 +7,69 @@ import Toggle from '../Toggle';
 
 function Header({ name }: HeaderProps) {
   return (
-    <HeaderWrapper>
-      <LogoWrapper>
-        <NavLink to="/">
-          <Logo />
-          <SiteName>{name}</SiteName>
-        </NavLink>
-      </LogoWrapper>
-      <HorizontalRule />
-      <NavWrapper>
-        <Nav>
+    <Wrapper>
+      <NavLink to="/">
+        <Logo />
+        <SiteName>{name}</SiteName>
+      </NavLink>
+      <Grid>
+        <Flex justifyContent={'space-between'}>
           <NavLink to="/articles">Articles</NavLink>
-        </Nav>
+        </Flex>
         <Toggle />
         <Search limit={5} />
-      </NavWrapper>
-    </HeaderWrapper>
+      </Grid>
+    </Wrapper>
   );
 }
 
-const Nav = styled.nav`
-  display: flex;
-  & > * {
-    margin: 0 1rem;
-  }
-`;
+interface HeaderProps {
+  name: string;
+}
+
+interface FlexProps {
+  justifyContent: string;
+}
 
 const NavLink = styled(Link)`
+  text-decoration: none;
   font-size: 1.25rem;
   line-height: 1.75rem;
-  text-decoration: none;
-  color: inherit;
+  color: var(--color-text);
   transition: all 0.2s ease-in-out;
   &:hover {
     color: var(--color-accent);
   }
 `;
 
-const HeaderWrapper = styled.div`
+const Wrapper = styled.div`
   display: grid;
   padding: 2.5rem 0;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  @media (min-width: 640px) {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+  grid-template-columns: max-content 1fr;
+  justify-items: end;
+  align-items: center;
 `;
 
-const LogoWrapper = styled.div`
-  display: flex;
-  a {
-    display: flex;
-    align-items: center;
-  }
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, max-content));
+  align-items: center;
+  gap: 1rem;
 `;
 
-const NavWrapper = styled.div`
+const Flex = styled.div<FlexProps>`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  @media (min-width: 768px) {
-    & > a {
-      margin: 0 1rem;
-    }
+  justify-content: ${(p) => p.justifyContent};
+  & > * {
+    margin: 0 1rem;
   }
-`;
-
-const HorizontalRule = styled.hr`
-  border: 1px solid var(--color-muted);
-  display: inline;
-  margin: 1.25rem 5rem;
-  @media (min-width: 640px) {
-    display: none;
-  }
+  margin: 0 -1rem;
 `;
 
 const SiteName = styled.div`
+  display: inline-block;
   margin-left: 1rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 `;
-
-interface HeaderProps {
-  name: string;
-}
 
 export default Header;

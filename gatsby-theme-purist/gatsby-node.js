@@ -48,6 +48,15 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 };
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
+  /* https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js */
+  const GatsbyImageSharpFluid = `
+      base64
+      aspectRatio
+      src
+      srcSet
+      sizes
+  `;
+
   const query = await graphql(`
     query {
       allMdx(
@@ -64,9 +73,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
               slug
             }
             timeToRead
+            excerpt
             frontmatter {
               title
-              date(formatString: "MMMM DD, YYYY")
+              date(formatString: "MMMM Do, YYYY")
+              featuredImage {
+                childImageSharp {
+                  fluid {
+                    ${GatsbyImageSharpFluid}
+                  }
+                }
+              }
             }
           }
         }

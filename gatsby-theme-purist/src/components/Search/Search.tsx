@@ -19,15 +19,15 @@ function Search({ limit }: SearchProps) {
   };
 
   return (
-    <SearchWrapper>
+    <Wrapper>
       <OutsideClickHandler
         onOutsideClick={() =>
           setState((prevState) => ({ ...prevState, showResults: false }))
         }
       >
-        <SearchInputWrapper rounded={!!!state.query || !state.showResults}>
-          <SearchIcon size="1.5rem" />
-          <SearchInput
+        <InputWrapper rounded={!!!state.query || !state.showResults}>
+          <SearchIcon size="20" />
+          <Input
             type="text"
             aria-label="search"
             onFocus={() =>
@@ -38,13 +38,13 @@ function Search({ limit }: SearchProps) {
             spellCheck="false"
           />
           <CloseIcon
-            size="1.5rem"
+            size="24"
             onClick={() =>
               setState((prevState) => ({ ...prevState, query: '' }))
             }
             hidden={!!!state.query}
           />
-        </SearchInputWrapper>
+        </InputWrapper>
         {!!state.query && state.showResults && (
           <SearchResults
             query={state.query}
@@ -55,11 +55,11 @@ function Search({ limit }: SearchProps) {
           />
         )}
       </OutsideClickHandler>
-    </SearchWrapper>
+    </Wrapper>
   );
 }
 
-interface SearchInputWrapperProps {
+interface InputWrapperProps {
   rounded?: boolean;
 }
 
@@ -72,13 +72,13 @@ interface SearchProps {
 }
 
 const CloseIcon = styled(X)<CloseIconProps>`
-  visibility: ${({ hidden }) => (hidden ? 'hidden' : 'visible')};
+  visibility: ${(p) => (p.hidden ? 'hidden' : 'visible')};
   &:hover {
     cursor: pointer;
   }
 `;
 
-const SearchWrapper = styled.div`
+const Wrapper = styled.div`
   display: none;
   position: relative;
 
@@ -87,17 +87,17 @@ const SearchWrapper = styled.div`
   }
 `;
 
-const SearchInputWrapper = styled.div<SearchInputWrapperProps>`
+const InputWrapper = styled.div<InputWrapperProps>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   padding: 0 0.75rem;
   border: 1px solid var(--color-text);
-  border-radius: ${({ rounded }) => (rounded ? '24px' : '24px 24px 0 0')};
+  border-radius: ${(p) => (p.rounded ? '24px' : '24px 24px 0 0')};
 `;
 
-const SearchInput = styled.input`
+const Input = styled.input`
   font-size: 1.125rem;
   line-height: 1.75rem;
   margin: 0.5rem;

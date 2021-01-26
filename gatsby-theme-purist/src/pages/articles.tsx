@@ -23,6 +23,7 @@ function Articles({ data }) {
                       <li key={node.id}>
                         <LinkWrapper to={slug}>
                           <Title>{title}</Title>
+                          <Excerpt>{node.excerpt}</Excerpt>
                           <Subtitle>
                             {date} &middot; {node.timeToRead} min read
                           </Subtitle>
@@ -57,9 +58,10 @@ export const pageQuery = graphql`
               slug
             }
             timeToRead
+            excerpt
             frontmatter {
               title
-              date(formatString: "MMMM DD, YYYY")
+              date(formatString: "MMMM Do, YYYY")
             }
           }
         }
@@ -92,9 +94,17 @@ const Title = styled.div`
   font-family: var(--font-serif);
 `;
 
+const Excerpt = styled.div`
+  color: var(--color-muted);
+  font-size: 1rem;
+  margin: 1rem 0;
+`;
+
 const Subtitle = styled.div`
   font-size: 1rem;
   color: var(--color-muted);
+  margin-bottom: 1rem;
+  opacity: 0.5;
 `;
 
 const Titles = styled.ul`

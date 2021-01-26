@@ -39,7 +39,6 @@ function Toggle() {
 }
 
 const ToggleWrapper = styled.a`
-  transform: rotate(-45deg);
   color: inherit;
   transition: all 0.2s ease-in-out;
   &:hover {

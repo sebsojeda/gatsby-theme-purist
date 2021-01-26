@@ -12,24 +12,19 @@ const global = css`
     transition: background-color 0.2s ease-in-out;
     color: var(--color-text);
     background-color: var(--color-background);
+    background-image: linear-gradient(
+      var(--color-background) 90%,
+      var(--color-muted) 145%
+    );
     font-family: var(--font-sans);
+    min-height: 100vh;
   }
   .footnotes ol {
-    margin: 2.5rem 0;
+    margin: 5rem 0;
   }
   .footnote-ref {
     vertical-align: super;
     font-size: 1rem;
-  }
-
-  /*
-   * Fix syntax line highlighting
-   * see https://github.com/FormidableLabs/prism-react-renderer
-   */
-  .gatsby-highlight {
-    margin: 1.75rem 0;
-    overflow: auto;
-    border-radius: 0.375rem;
   }
 
   /*
