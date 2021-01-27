@@ -11,8 +11,7 @@ function Toggle() {
 
   const { colorMode, setColorMode } = useTheme();
 
-  const handleClick = (e) => {
-    e.preventDefault();
+  const handleClick = () => {
     setColorMode(colorMode === 'dark' ? 'light' : 'dark');
     anime({
       targets: '#toggle',
@@ -23,7 +22,7 @@ function Toggle() {
   };
 
   return (
-    <ToggleWrapper onClick={handleClick} href="#">
+    <ToggleWrapper onClick={handleClick}>
       <svg
         width="24"
         height="24"
@@ -38,11 +37,15 @@ function Toggle() {
   );
 }
 
-const ToggleWrapper = styled.a`
+const ToggleWrapper = styled.button`
+  background: 0;
+  border: none;
+  padding: 0;
   color: inherit;
   transition: all 0.2s ease-in-out;
   &:hover {
     color: var(--color-accent);
+    cursor: pointer;
   }
   svg {
     transform-box: fill-box;

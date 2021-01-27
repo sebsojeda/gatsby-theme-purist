@@ -79,12 +79,8 @@ const CloseIcon = styled(X)<CloseIconProps>`
 `;
 
 const Wrapper = styled.div`
-  display: none;
   position: relative;
-
-  @media (min-width: 768px) {
-    display: block;
-  }
+  display: block;
 `;
 
 const InputWrapper = styled.div<InputWrapperProps>`

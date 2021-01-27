@@ -19,6 +19,9 @@ const global = css`
     font-family: var(--font-sans);
     min-height: 100vh;
   }
+  body.menu-open {
+    overflow: hidden;
+  }
   .footnotes ol {
     margin: 5rem 0;
   }
