@@ -12,12 +12,6 @@ A clean, full-featured theme with built-in search, dark mode, and social sharing
 
 Why you should use Purist:
 
-### Search
-
-Search is built in using
-[FlexSearch.js](https://github.com/nextapps-de/flexsearch) to find content
-quickly and easily.
-
 ### Dark mode
 
 A toggable light and dark theme are available out of the box using the

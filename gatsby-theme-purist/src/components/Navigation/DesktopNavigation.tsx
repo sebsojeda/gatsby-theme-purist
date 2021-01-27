@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import Search from '../Search';
 import Toggle from '../Toggle';
 import { NavLink } from './Navigation';
 
@@ -11,7 +10,6 @@ function DesktopNavigation() {
         <NavLink to="/articles">Articles</NavLink>
         <Toggle />
       </Flex>
-      <Search limit={5} />
     </Nav>
   );
 }
@@ -20,7 +18,7 @@ const Nav = styled.nav`
   display: none;
   justify-items: center;
   align-items: center;
-  grid-template-columns: repeat(2, minmax(0, max-content));
+  grid-template-columns: repeat(1, minmax(0, max-content));
   gap: 2rem;
   @media (min-width: 768px) {
     display: grid;
