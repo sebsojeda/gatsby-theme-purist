@@ -53,7 +53,7 @@ const ThemeScript = () => {
 };
 
 export const onRenderBody = ({ setPreBodyComponents }) => {
-  setPreBodyComponents(<ThemeScript />);
+  setPreBodyComponents(<ThemeScript key="theme-script" />);
 };
 
 export const wrapRootElement = ({ element }) => {

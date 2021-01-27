@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "gatsby": "^2.21.21",
-    "gatsby-theme-purist": "*",
+    "gatsby-theme-purist": "workspace:gatsby-theme-purist",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   }
