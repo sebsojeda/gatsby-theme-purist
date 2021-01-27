@@ -5,8 +5,7 @@
     "publish": {
       "allowBranch": ["main"],
       "ignoreChanges": ["ignored-file", "*.md"],
-      "message": "chore(release): publish",
-      "yes": true
+      "message": "chore(release): publish"
     },
     "bootstrap": {
       "npmClientArgs": ["--no-package-lock"]
@@ -15,7 +14,6 @@
       "allowBranch": "main",
       "conventionalCommits": true,
       "createRelease": "github",
-      "yes": true,
       "message": "chore(release): publish [skip ci]"
     }
   },
