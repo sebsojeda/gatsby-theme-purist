@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import React from 'react';
 import App from '../components/App';
 import Logo from '../components/Logo';
-import Search from '../components/Search';
 import SEO from '../components/SEO';
 
 function NotFoundPage() {
@@ -17,7 +16,6 @@ function NotFoundPage() {
           <Link to="/">
             <Logo />
           </Link>
-          <Search />
         </SearchWrapper>
       </PageWrapper>
     </App>

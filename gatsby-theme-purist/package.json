@@ -4,7 +4,7 @@
   "main": "index.js",
   "author": "Sebastian Ojeda <hello@sebastianojeda.com> (@sebsojeda)",
   "license": "0BSD",
-  "description": "A clean, full-featured theme with built-in search, dark mode, and social sharing – all for creating content with Gatsby.",
+  "description": "A clean, full-featured theme with built-in dark mode, and social sharing – all for creating content with Gatsby.",
   "repository": {
     "type": "git",
     "url": "https://github.com/sebsojeda/gatsby-theme-purist"

@@ -5,8 +5,8 @@ alt="gatsby-theme-purist hero image" />
 
 # Purist – A Gatsby theme
 
-A clean, full-featured theme with built-in search, dark mode, and social sharing
-– all for creating content with Gatsby.
+A clean, full-featured theme with built-in dark mode, and social sharing – all
+for creating content with Gatsby.
 
 ## Features
 
