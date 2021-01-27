@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/sebsojeda/gatsby-theme-purist/compare/gatsby-theme-purist@1.0.12...gatsby-theme-purist@1.1.0) (2021-01-27)
+
+
+### Features
+
+* add mobile navigation menu ([f44e99e](https://github.com/sebsojeda/gatsby-theme-purist/commit/f44e99e77b2a7add55bfa9ecf057620a2154cadc))
+
+
+### Reverts
+
+* disable search for now ([7354751](https://github.com/sebsojeda/gatsby-theme-purist/commit/73547519ed1146407e48ad86f2221f239d4471e2))
+* remove references for search for now ([e4f1514](https://github.com/sebsojeda/gatsby-theme-purist/commit/e4f1514f5290a6d2dcec8a99f4a1e1f5e3a2558c))
+
+
+
+
+
 ## [1.0.12](https://github.com/sebsojeda/gatsby-theme-purist/compare/gatsby-theme-purist@1.0.11...gatsby-theme-purist@1.0.12) (2021-01-27)
 
 **Note:** Version bump only for package gatsby-theme-purist
