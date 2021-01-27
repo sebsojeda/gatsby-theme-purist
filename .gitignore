@@ -14,8 +14,14 @@ public
 # Mac files
 .DS_Store
 
-# Yarn Integrity file
+# Yarn
 .yarn-integrity
+.yarn/*
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+.pnp.*
 
 # Editors
 .vscode/*
