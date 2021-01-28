@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 import React from 'react';
 import App from '../components/App';
-import Logo from '../components/Logo';
 import SEO from '../components/SEO';
 
 function NotFoundPage() {
@@ -10,29 +9,39 @@ function NotFoundPage() {
     <App>
       <SEO title="404 Not Found" />
       <PageWrapper>
-        <div>This page isn't available. Sorry about that.</div>
-        <div>Try searching for something else.</div>
-        <Link to="/">
-          <Logo />
-        </Link>
+        <Title>Not Found</Title>
+        <Subtitle>Try searching for something else.</Subtitle>
+        <HomeLink>
+          <Link to="/">&larr; Go Home</Link>
+        </HomeLink>
       </PageWrapper>
     </App>
   );
 }
 
+const Title = styled.div`
+  font-size: 5rem;
+  line-height: 4.25rem;
+  margin-bottom: 1rem;
+`;
+
+const Subtitle = styled.div`
+  font-size: 1.5rem;
+`;
+
+const HomeLink = styled.div`
+  & > a {
+    text-decoration: none;
+    color: var(--color-header);
+  }
+`;
+
 const PageWrapper = styled.div`
   flex-direction: column;
   height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: 5rem;
   gap: 1rem;
-  & > a {
-    color: var(--color-text);
-    :hover {
-      color: var(--color-accent);
-    }
-  }
 `;
 
 export default NotFoundPage;

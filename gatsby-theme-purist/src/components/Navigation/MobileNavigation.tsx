@@ -37,7 +37,7 @@ interface AnimateProps extends MenuProps {
 }
 
 const AnimationWrapper = styled.div`
-  padding: 8rem 0 0 5rem;
+  padding: 8rem 5rem;
   display: flex;
   gap: 5rem;
   flex-direction: column;
