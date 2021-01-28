@@ -88,10 +88,12 @@ interface FooterProps {
 
 const IconsWrapper = styled.div`
   display: flex;
-  gap: 1.5rem;
   align-items: center;
   justify-content: center;
   margin-top: 4.5rem;
+  & > * + * {
+    margin-left: 1.5rem;
+  }
   @media (min-width: 768px) {
     margin-top: 0;
   }

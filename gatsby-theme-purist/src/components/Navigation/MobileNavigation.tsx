@@ -7,23 +7,19 @@ import { NavLink } from './Navigation';
 function MobileNavigation() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleMenuToggle = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <Wrapper>
-      <MenuIcon size="30" onClick={handleMenuToggle} isOpen={isOpen} />
-      <Nav isOpen={isOpen}>
-        <AnimationWrapper>
+      <MenuIcon size="30" onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} />
+      <NavWrapper isOpen={isOpen}>
+        <Nav>
           <Animate delay={0.3} isOpen={isOpen}>
             <NavLink to="/articles">Articles</NavLink>
           </Animate>
-          <Animate delay={0.5} isOpen={isOpen}>
+          <FadeIn isOpen={isOpen}>
             <Toggle />
-          </Animate>
-        </AnimationWrapper>
-      </Nav>
+          </FadeIn>
+        </Nav>
+      </NavWrapper>
     </Wrapper>
   );
 }
@@ -36,21 +32,28 @@ interface AnimateProps extends MenuProps {
   delay: number;
 }
 
-const AnimationWrapper = styled.div`
-  padding: 8rem 5rem;
+const Nav = styled.nav`
+  padding: 7rem 2rem;
   display: flex;
-  gap: 5rem;
+  & > * + * {
+    margin-top: 4rem;
+  }
   flex-direction: column;
   justify-content: left;
 `;
 
-const Animate = styled.div<AnimateProps>`
-  transition: all 0.4s ease-in-out;
-  transition-delay: ${(p) => p.delay}s;
+const FadeIn = styled.div<MenuProps>`
   opacity: ${(p) => (p.isOpen ? '1' : '0')};
+  transition: opacity 0.8s ease-in-out;
+`;
+
+const Animate = styled.div<AnimateProps>`
   transform: translateX(${(p) => (p.isOpen ? '0' : '-500px')});
+  opacity: ${(p) => (p.isOpen ? '1' : '0')};
+  transition: transform 0.5s ease-in-out ${(p) => p.delay}s,
+    opacity 0.5s ease-in-out ${(p) => p.delay + 0.2}s;
   & > * {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
   }
 `;
 
@@ -61,18 +64,17 @@ const Wrapper = styled.div`
   }
 `;
 
-const Nav = styled.nav<MenuProps>`
+const NavWrapper = styled.div<MenuProps>`
   position: fixed;
-  width: ${(p) => (p.isOpen ? '100vw' : '0')};
+  width: ${(p) => (p.isOpen ? '100%' : '0')};
   overflow: hidden;
-  height: 100vh;
+  height: 100%;
   top: 0;
   left: 0;
   z-index: 2;
   background-color: var(--color-background);
-  backdrop-filter: blur(15px);
+  backdrop-filter: opacity(100%);
   transition: all 0.3s ease-in-out;
-  opacity: ${(p) => (p.isOpen ? '0.95' : '0')};
 `;
 
 const MenuIcon = styled(MenuAltRight)<MenuProps>`

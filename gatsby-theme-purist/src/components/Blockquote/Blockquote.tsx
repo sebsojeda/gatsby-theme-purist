@@ -36,7 +36,9 @@ const InfoIcon = styled(InfoCircle)`
 const Children = styled.blockquote`
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  & > * + * {
+    margin-top: 1.5rem;
+  }
 `;
 
 export default Blockquote;

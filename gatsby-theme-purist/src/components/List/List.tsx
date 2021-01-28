@@ -5,7 +5,9 @@ export const OrderedList = styled.ol`
   padding-inline-start: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  & > * + * {
+    margin-top: 1.5rem;
+  }
 `;
 
 export const UnorderedList = styled.ul`
@@ -13,7 +15,9 @@ export const UnorderedList = styled.ul`
   padding-inline-start: 1.25rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  & > * + * {
+    margin-top: 1.5rem;
+  }
 `;
 
 export const ListItem = styled.li`

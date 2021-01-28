@@ -41,7 +41,9 @@ const PageWrapper = styled.div`
   height: 100vh;
   display: flex;
   margin: 5rem;
-  gap: 1rem;
+  & > * + * {
+    margin-top: 1rem;
+  }
 `;
 
 export default NotFoundPage;

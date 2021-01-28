@@ -142,6 +142,7 @@ const Heading = styled.h1`
 const SubHeading = styled.h2`
   font-size: 1.5rem;
   line-height: 2rem;
+  margin-top: 0.5rem;
 `;
 
 const Label = styled.h3`

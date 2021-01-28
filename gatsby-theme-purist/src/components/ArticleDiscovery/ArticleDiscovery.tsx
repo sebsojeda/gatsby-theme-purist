@@ -84,7 +84,7 @@ const GridColumn = styled.div<GridColumnProps>`
 const Excerpt = styled.div`
   color: var(--color-muted);
   font-size: 1rem;
-  margin: 1rem 0;
+  padding: 1rem 0;
 `;
 
 const Image = styled(Img)<GatsbyImageProps>`
@@ -94,16 +94,16 @@ const Image = styled(Img)<GatsbyImageProps>`
 `;
 
 const Title = styled.h3`
-  display: inline-block;
+  display: block;
   font-size: 1.5rem;
   line-height: 2rem;
-  margin-top: 1rem;
+  padding-top: 1rem;
   font-family: var(--font-serif);
 `;
 
 const Subtitle = styled.div`
   color: var(--color-muted);
-  margin-top: 0.25rem;
+  padding-top: 0.25rem;
   font-size: 1rem;
   opacity: 0.5;
 `;
