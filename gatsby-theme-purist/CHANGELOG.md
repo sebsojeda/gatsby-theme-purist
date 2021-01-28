@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/sebsojeda/gatsby-theme-purist/compare/gatsby-theme-purist@1.1.2...gatsby-theme-purist@1.1.3) (2021-01-28)
+
+**Note:** Version bump only for package gatsby-theme-purist
+
+
+
+
+
 ## [1.1.2](https://github.com/sebsojeda/gatsby-theme-purist/compare/gatsby-theme-purist@1.1.1...gatsby-theme-purist@1.1.2) (2021-01-28)
 
 **Note:** Version bump only for package gatsby-theme-purist
