@@ -63,13 +63,16 @@ export const query = graphql`
 
 const TitleWrapper = styled.div`
   text-align: center;
-  margin-top: 4rem;
   margin-bottom: 5rem;
+  margin-top: 12.75rem;
+  @media (min-width: 768px) {
+    margin-top: 9rem;
+  }
 `;
 
 const Title = styled.h1`
   font-size: 3rem;
-  line-height: 2.5rem;
+  line-height: 3.5rem;
   font-family: var(--font-serif);
 `;
 

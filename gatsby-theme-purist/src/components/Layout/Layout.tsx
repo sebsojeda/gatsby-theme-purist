@@ -39,10 +39,8 @@ const Container = styled.div`
   margin-right: auto;
   width: calc(100% - 3rem);
   max-width: 46rem;
-  padding-top: 7rem;
   @media (min-width: 1024px) {
     max-width: 65rem;
-    padding-top: 0;
   }
 `;
 
