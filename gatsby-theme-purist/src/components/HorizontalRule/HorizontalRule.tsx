@@ -11,7 +11,7 @@ const HorizontalRule = styled.div`
     background-color: inherit;
     position: absolute;
     content: '';
-    left: 2rem;
+    left: -2rem;
     top: 0;
     height: 0.3rem;
     width: 0.3rem;
@@ -21,7 +21,7 @@ const HorizontalRule = styled.div`
     background-color: inherit;
     position: absolute;
     content: '';
-    left: -2rem;
+    left: 2rem;
     top: 0;
     height: 0.3rem;
     width: 0.3rem;

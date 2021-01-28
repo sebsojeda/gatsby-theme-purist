@@ -7,10 +7,10 @@ function Header({ name }: HeaderProps) {
   return (
     <Wrapper>
       <NavLink to="/">
-        <Flex>
+        <LogoWrapper>
           <Logo />
           <SiteName>{name}</SiteName>
-        </Flex>
+        </LogoWrapper>
       </NavLink>
       <Navigation />
     </Wrapper>
@@ -22,21 +22,31 @@ interface HeaderProps {
 }
 
 const Wrapper = styled.div`
-  padding: 2.5rem 0;
+  background-color: var(--color-background);
+  padding: 1rem 0;
   display: grid;
   grid-template-columns: max-content 1fr;
   justify-items: end;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - 3rem);
+  max-width: 65rem;
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1rem 1.5rem;
+    z-index: 1;
+  }
 `;
 
-const Flex = styled.div`
+const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-start;
 `;
 
 const SiteName = styled.div`
-  display: inline-block;
   margin-left: 1rem;
 `;
 

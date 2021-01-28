@@ -122,23 +122,4 @@ const Wrapper = styled(Link)`
   }
 `;
 
-// const Title = styled.div`
-//   font-size: 1.5rem;
-//   line-height: 2rem;
-//   font-family: var(--font-serif);
-//   transition: all 0.2s ease-in-out;
-//   color: var(--color-text);
-//   ${Link}:hover & {
-//     color: var(--color-accent);
-//   }
-// `;
-
-// const Subtitle = styled.div`
-//   padding-top: 0.5rem;
-//   font-size: 1.25rem;
-//   line-height: 1.75rem;
-//   color: var(--color-muted);
-//   font-size: 1rem;
-// `;
-
 export default ArticleDiscovery;

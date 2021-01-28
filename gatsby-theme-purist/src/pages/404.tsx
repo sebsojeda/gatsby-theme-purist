@@ -12,31 +12,13 @@ function NotFoundPage() {
       <PageWrapper>
         <div>This page isn't available. Sorry about that.</div>
         <div>Try searching for something else.</div>
-        <SearchWrapper>
-          <Link to="/">
-            <Logo />
-          </Link>
-        </SearchWrapper>
+        <Link to="/">
+          <Logo />
+        </Link>
       </PageWrapper>
     </App>
   );
 }
-
-const SearchWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2rem;
-  a {
-    color: inherit;
-  }
-  & > * {
-    margin: 0 1rem;
-  }
-  a:hover {
-    color: var(--color-accent);
-  }
-`;
 
 const PageWrapper = styled.div`
   flex-direction: column;
@@ -45,6 +27,12 @@ const PageWrapper = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  & > a {
+    color: var(--color-text);
+    :hover {
+      color: var(--color-accent);
+    }
+  }
 `;
 
 export default NotFoundPage;

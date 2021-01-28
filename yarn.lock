@@ -3754,6 +3754,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/anymatch@npm:*":
+  version: 1.3.1
+  resolution: "@types/anymatch@npm:1.3.1"
+  checksum: 1647865e528a168f66f57a077e9651c10a4c172b656cc3686fddf176555d42ca0a1647bfc626ea2fceb68fc7701426ab708224be1762b4a5216fe8368ffdba3c
+  languageName: node
+  linkType: hard
+
 "@types/cacheable-request@npm:^6.0.1":
   version: 6.0.1
   resolution: "@types/cacheable-request@npm:6.0.1"
@@ -4026,6 +4033,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-loadable@npm:^5.5.4":
+  version: 5.5.4
+  resolution: "@types/react-loadable@npm:5.5.4"
+  dependencies:
+    "@types/react": "*"
+    "@types/webpack": "*"
+  checksum: e430cfb9c9f976c918d9d47140043509ab721bd8f98410bfa5e46cb66225cab2444b0dd23e23ec66a1d751f73c1056bc921bbbc683614571fa909a56bf0c5517
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*":
   version: 17.0.0
   resolution: "@types/react@npm:17.0.0"
@@ -4065,10 +4082,33 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/source-list-map@npm:*":
+  version: 0.1.2
+  resolution: "@types/source-list-map@npm:0.1.2"
+  checksum: 191f0e3b056b481e7a0bbb38f3d5b54b015556e38075726ca2637a35d3694df85cd16761b1b188729ac687a55aec3cbc2b07033ac090bcc13efe09ad10a3e935
+  languageName: node
+  linkType: hard
+
+"@types/tapable@npm:*":
+  version: 1.0.6
+  resolution: "@types/tapable@npm:1.0.6"
+  checksum: 01709a2f8dbea665a39c008ba6995c76210fabb52434815e7632c7fff22ecad1dd49a1d75b8f5b2e9b365c6d7a6407127bed834587df4777b800110c2a74fc36
+  languageName: node
+  linkType: hard
+
 "@types/tmp@npm:^0.0.33":
   version: 0.0.33
   resolution: "@types/tmp@npm:0.0.33"
   checksum: 93442cc384e3545e4ba625c74de37fa1011a82a440e6d762875db20977badaba5681ad20e88280727ca94777b37a030a421646ccd9187a39eae582d7012852d0
+  languageName: node
+  linkType: hard
+
+"@types/uglify-js@npm:*":
+  version: 3.11.1
+  resolution: "@types/uglify-js@npm:3.11.1"
+  dependencies:
+    source-map: ^0.6.1
+  checksum: 75f1c06245dc31cb44496a4f4b685d313863561892c9cb51e7ba3a90522d4775b276f0febf43b797102309cb44e2226fba15a08aa043cd2423455ff3662d4039
   languageName: node
   linkType: hard
 
@@ -4096,6 +4136,31 @@ __metadata:
     "@types/unist": "*"
     "@types/vfile-message": "*"
   checksum: 7434e3532cb43e2c6eac8dc465f14a7b56a73c4b394a0a757e15423d22844330309f77038debe09c4a5219bc6feda4388f9eb7c9161755933cf003558804db5e
+  languageName: node
+  linkType: hard
+
+"@types/webpack-sources@npm:*":
+  version: 2.1.0
+  resolution: "@types/webpack-sources@npm:2.1.0"
+  dependencies:
+    "@types/node": "*"
+    "@types/source-list-map": "*"
+    source-map: ^0.7.3
+  checksum: 26aba8ae682529be737eff726dcf08019460b180e9d22e80925e65240c908312096067b5547ac3dcb6d7b383a4bf0473eb68d0fd4ff483b17f3147fefce149af
+  languageName: node
+  linkType: hard
+
+"@types/webpack@npm:*":
+  version: 4.41.26
+  resolution: "@types/webpack@npm:4.41.26"
+  dependencies:
+    "@types/anymatch": "*"
+    "@types/node": "*"
+    "@types/tapable": "*"
+    "@types/uglify-js": "*"
+    "@types/webpack-sources": "*"
+    source-map: ^0.6.0
+  checksum: c84012af1d0159e6c17b065139d8c15ffe18042445db4f9c61e2fe3aff1d4ebeb8a65af6824e991eb161334c2842c6d2b55f9d700bd7e64bf492f3dcbf1a92d1
   languageName: node
   linkType: hard
 
@@ -10171,13 +10236,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"flexsearch@npm:^0.3.4":
-  version: 0.3.61
-  resolution: "flexsearch@npm:0.3.61"
-  checksum: 9b9ba572adbeaa0a8dbdc4171cdce2757e91b0b93fb7de9aa5721ac9453ad78d06a7527c12b197d2e0fcf429955e3d3fa79cae84f71307b32d33872eab728e6f
-  languageName: node
-  linkType: hard
-
 "flush-write-stream@npm:^1.0.0":
   version: 1.1.1
   resolution: "flush-write-stream@npm:1.1.1"
@@ -10365,13 +10423,6 @@ __metadata:
   version: 1.0.0
   resolution: "fs.realpath@npm:1.0.0"
   checksum: 698a91b1695e3926185c9e5b0dd57cf687dceb4eb73799af91e6b2ab741735e2962c366c5af6403ffddae2619914193bd339efa706fdc984d0ffc74b7a3603f4
-  languageName: node
-  linkType: hard
-
-"fs@npm:^0.0.1-security":
-  version: 0.0.1-security
-  resolution: "fs@npm:0.0.1-security"
-  checksum: d23d3c0dd42fd11508e5f8d265375c676816adf398f61bfc3e2635e6e8ca323fd1f530d5dd5f87e4fca54296efb5ddf8a382b99f1ac243ac0a8b4b1cae8f5fac
   languageName: node
   linkType: hard
 
@@ -10603,17 +10654,6 @@ fsevents@~2.3.1:
     "@emotion/react": ^11.0.0
     gatsby: ^2.0.0
   checksum: d951cf91e8180f7d267cd1ae391d7ff6e4c3394e5e9b6834ab2c2bb3adcc35000ff2bd1dee34a8095c7580829f5ed1d28403742bf2ae72dab6b04cdfcbe9ff46
-  languageName: node
-  linkType: hard
-
-"gatsby-plugin-flexsearch@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "gatsby-plugin-flexsearch@npm:1.0.3"
-  dependencies:
-    flexsearch: ^0.3.4
-    fs: ^0.0.1-security
-    lodash: ^4.17.11
-  checksum: c5531e1efd848a1d1ff37b56aec75276916ea0d0127454ce60d7743fdfcf4e2c8f90dbd551999e3651c26a496ffe46da6e1a8faaaca2f74278dcc7baf33d7f6e
   languageName: node
   linkType: hard
 
@@ -10956,6 +10996,7 @@ fsevents@~2.3.1:
     "@mdx-js/react": ^1.6.22
     "@types/animejs": 2.0.0
     "@types/react-helmet": ^5.0.15
+    "@types/react-loadable": ^5.5.4
     animejs: 3.2.0
     emotion-reset: ^3.0.0
     gatsby: ^2.21.21
@@ -10963,7 +11004,6 @@ fsevents@~2.3.1:
     gatsby-plugin-catch-links: ^2.3.11
     gatsby-plugin-draft: ^0.1.0
     gatsby-plugin-emotion: ^5.3.0
-    gatsby-plugin-flexsearch: ^1.0.3
     gatsby-plugin-mdx: ^1.7.0
     gatsby-plugin-react-helmet: ^3.3.1
     gatsby-plugin-sharp: ^2.6.8

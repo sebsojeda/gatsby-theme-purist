@@ -47,37 +47,5 @@ module.exports = {
         path: 'content',
       },
     },
-    {
-      resolve: 'gatsby-plugin-flexsearch',
-      options: {
-        languages: ['en'],
-        type: 'Mdx',
-        fields: [
-          {
-            name: 'title',
-            indexed: true,
-            resolver: 'frontmatter.title',
-            attributes: {
-              encode: 'advanced',
-              tokenize: 'forward',
-              threshold: 6,
-            },
-            store: true,
-          },
-          {
-            name: 'slug',
-            indexed: false,
-            resolver: 'fields.slug',
-            store: true,
-          },
-          {
-            name: 'draft',
-            indexed: false,
-            resolver: 'fields.draft',
-            store: true,
-          },
-        ],
-      },
-    },
   ],
 };

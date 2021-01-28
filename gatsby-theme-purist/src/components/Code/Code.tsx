@@ -10,10 +10,7 @@ function Code({ className, metastring, children }: CodeProps) {
   const shouldHighlightLine = calculateLinesToHighlight(metastring);
   const [copied, setCopied] = useState(false);
 
-  const handleCopyCode = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
-  ) => {
-    e.preventDefault();
+  const handleCopyCode = () => {
     setCopied(true);
     copyToClipboard(children as string);
     setTimeout(() => setCopied(false), 2000);
@@ -127,9 +124,10 @@ const LanguageName = styled.div`
 `;
 
 const Pre = styled.pre`
-  margin: 1.75rem 0;
+  margin: 1.75rem -1.5rem;
   overflow: auto;
   border-radius: 0.375rem;
+  background-color: var(--prism-background);
 `;
 
 const CodeWrapper = styled.code`
@@ -138,10 +136,7 @@ const CodeWrapper = styled.code`
   min-width: calc(100% - 3rem);
   padding: 1.5rem;
   font-family: var(--font-monospace);
-  & > * {
-    display: flex;
-  }
-  & > *:last-of-type {
+  & > div:last-of-type {
     height: 0;
   }
 `;

@@ -17,10 +17,9 @@ const global = css`
       var(--color-muted) 145%
     );
     font-family: var(--font-sans);
+    font-size: 1.125rem;
+    line-height: 1.75rem;
     min-height: 100vh;
-  }
-  body.menu-open {
-    overflow: hidden;
   }
   .footnotes ol {
     margin: 5rem 0;
@@ -52,8 +51,8 @@ const global = css`
    * see https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-remark-autolink-headers
    */
   .anchor {
-    color: var(--color-text) !important;
-    padding: 0 0.25rem;
+    color: var(--color-header) !important;
+    margin-left: 0.25rem;
     &:hover {
       box-shadow: none !important;
     }

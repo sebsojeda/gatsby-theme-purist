@@ -17,12 +17,16 @@ const Wrapper = styled.div`
   border-radius: 0 0.375rem 0.375rem 0.125rem;
   border-left: 4px solid var(--color-info);
   background-color: var(--color-info-background);
+  margin: 0 -1.5rem;
+  @media (max-width: 1120px) {
+    margin: 0;
+  }
 `;
 
 const InfoIcon = styled(InfoCircle)`
   position: absolute;
   background-color: var(--color-background);
-  border-radius: 9999px;
+  border-radius: 100%;
   color: var(--color-info);
   padding: 0.75rem;
   top: calc(0rem - 1.5rem);
@@ -30,15 +34,9 @@ const InfoIcon = styled(InfoCircle)`
 `;
 
 const Children = styled.blockquote`
-  & > * {
-    margin: 2.5rem auto;
-  }
-  & > *:first-of-type {
-    margin-top: 0;
-  }
-  & > *:last-of-type {
-    margin-bottom: 0;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 `;
 
 export default Blockquote;

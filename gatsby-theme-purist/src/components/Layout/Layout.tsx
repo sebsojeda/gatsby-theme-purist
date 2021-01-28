@@ -13,11 +13,9 @@ function Layout({ children }) {
   return (
     <MDX>
       <SEO />
-      <Container>
-        <Header name={name} />
-        {children}
-        <Footer social={social} />
-      </Container>
+      <Header name={name} />
+      <Container>{children}</Container>
+      <Footer social={social} />
     </MDX>
   );
 }
@@ -39,26 +37,12 @@ const query = graphql`
 const Container = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 95%;
-
-  @media (min-width: 640px) {
-    max-width: 100%;
-  }
-
-  @media (min-width: 768px) {
-    max-width: 90%;
-  }
-
+  width: calc(100% - 3rem);
+  max-width: 46rem;
+  padding-top: 7rem;
   @media (min-width: 1024px) {
-    max-width: 85%;
-  }
-
-  @media (min-width: 1280px) {
-    max-width: 80%;
-  }
-
-  @media (min-width: 1536px) {
-    max-width: 70%;
+    max-width: 65rem;
+    padding-top: 0;
   }
 `;
 

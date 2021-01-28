@@ -30,7 +30,7 @@ export const TableHeader = styled.th`
     box-sizing: border-box;
     top: 0;
     left: 0;
-    z-index: -999;
+    z-index: -2;
   }
 `;
 

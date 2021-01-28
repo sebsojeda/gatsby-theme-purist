@@ -88,6 +88,7 @@ interface FooterProps {
 
 const IconsWrapper = styled.div`
   display: flex;
+  gap: 1.5rem;
   align-items: center;
   justify-content: center;
   margin-top: 4.5rem;
@@ -100,15 +101,8 @@ const SocialIcon = styled.a`
   color: var(--color-muted);
   text-decoration: none;
   transition: all 0.2s ease-in-out;
-  margin: 0 1.5rem;
   &:hover {
     color: var(--color-text);
-  }
-  &:first-of-type {
-    margin-left: 0;
-  }
-  &:last-of-type {
-    margin-right: 0;
   }
 `;
 
@@ -123,6 +117,10 @@ const Wrapper = styled.footer`
   flex-wrap: wrap;
   color: var(--color-muted);
   flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100% - 3rem);
+  max-width: 65rem;
   @media (min-width: 768px) {
     flex-direction: row;
   }

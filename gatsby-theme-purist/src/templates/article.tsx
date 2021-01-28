@@ -74,8 +74,8 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.div`
-  margin-top: 1.25rem;
-  margin-bottom: 5rem;
+  padding-top: 1.25rem;
+  margin-bottom: 8rem;
   font-size: 1.25rem;
   line-height: 1.75rem;
   color: var(--color-muted);
@@ -83,9 +83,9 @@ const Subtitle = styled.div`
 
 const TitleImage = styled(Img)<GatsbyImageProps>`
   object-fit: cover;
-  margin: 8rem auto 0 auto;
-  max-height: 40rem;
-  max-width: 60rem;
+  width: 100%;
+  max-height: 45rem;
+  margin: 0 auto;
 `;
 
 export default Article;

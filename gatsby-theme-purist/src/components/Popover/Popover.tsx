@@ -3,7 +3,7 @@ import { Copy } from '@emotion-icons/boxicons-regular';
 import styled from '@emotion/styled';
 import { useLocation } from '@reach/router';
 import React, { useState } from 'react';
-import Wrapper from 'react-text-selection-popover';
+import SelectionPopover from 'react-text-selection-popover';
 import { copyToClipboard } from '../../utils';
 
 function Popover({ selectionRef }: PopoverProps) {
@@ -25,11 +25,11 @@ function Popover({ selectionRef }: PopoverProps) {
   };
 
   return (
-    <Wrapper
+    <SelectionPopover
       selectionRef={selectionRef}
       onTextSelect={() => setSelection(document.getSelection().toString())}
     >
-      <PopoverWrapper>
+      <ActionsWrapper>
         <a
           target="_blank"
           rel="noopener"
@@ -49,8 +49,8 @@ function Popover({ selectionRef }: PopoverProps) {
           <LinkedinIcon size="20" />
         </a>
         <CopyIcon size="20" onMouseDown={() => copyToClipboard(selection)} />
-      </PopoverWrapper>
-    </Wrapper>
+      </ActionsWrapper>
+    </SelectionPopover>
   );
 }
 
@@ -58,17 +58,17 @@ interface PopoverProps {
   selectionRef: React.MutableRefObject<any>;
 }
 
-const PopoverWrapper = styled.div`
+const ActionsWrapper = styled.div`
   display: flex;
-  padding: 0.5rem;
+  align-items: center;
   border-radius: 0.375rem;
-  z-index: 9999;
+  z-index: 1;
   background: #0a0a0a;
   & > * {
-    padding: 0.25rem;
-  }
-  & > *:hover {
-    cursor: pointer;
+    padding: 0.5rem;
+    :hover {
+      cursor: pointer;
+    }
   }
 `;
 
@@ -88,4 +88,3 @@ const TwitterIcon = styled(Twitter)`
 `;
 
 export default Popover;
-export { PopoverWrapper };

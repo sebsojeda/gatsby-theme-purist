@@ -11,6 +11,7 @@ export default {
       colors: {
         background: 'hsl(0deg, 0%, 100%)',
         text: 'hsl(222deg, 22%, 5%)',
+        header: 'hsl(255deg, 85%, 30%)',
         info: 'hsl(245deg, 100%, 60%)',
         infoBackground: 'hsl(210deg, 55%, 92%)',
         accent: 'hsl(245deg, 100%, 60%)',
@@ -42,6 +43,7 @@ export default {
       colors: {
         background: 'hsl(210deg, 30%, 8%)',
         text: 'hsl(0deg, 0%, 100%)',
+        header: 'hsl(53deg, 100%, 50%)',
         info: 'hsl(230deg, 100%, 67%)',
         infoBackground: 'hsl(210deg, 38%, 15%)',
         accent: 'hsl(333deg, 100%, 52%)',
