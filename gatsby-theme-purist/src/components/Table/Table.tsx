@@ -21,6 +21,7 @@ export const TableHeader = styled.th`
   padding: 0.5rem;
   position: relative;
   &::after {
+    border: 1px solid var(--color-muted);
     content: '';
     position: absolute;
     width: 100%;
@@ -36,6 +37,7 @@ export const TableHeader = styled.th`
 
 export const TableData = styled.td`
   padding: 0.75rem;
+  border: 1px solid var(--color-muted);
 `;
 
 export const TableRow = styled.tr``;
