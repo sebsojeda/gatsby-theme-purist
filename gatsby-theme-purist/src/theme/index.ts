@@ -10,6 +10,7 @@ export default {
     light: {
       colors: {
         background: 'hsl(0deg, 0%, 100%)',
+        blurredBackground: 'hsla(0deg, 0%, 100%, 0.85)',
         text: 'hsl(222deg, 22%, 5%)',
         header: 'hsl(255deg, 85%, 30%)',
         info: 'hsl(245deg, 100%, 60%)',
@@ -42,6 +43,7 @@ export default {
     dark: {
       colors: {
         background: 'hsl(210deg, 30%, 8%)',
+        blurredBackground: 'hsla(210deg, 30%, 8%, 0.85)',
         text: 'hsl(0deg, 0%, 100%)',
         header: 'hsl(53deg, 100%, 50%)',
         info: 'hsl(230deg, 100%, 67%)',

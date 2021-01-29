@@ -9,7 +9,11 @@ function MobileNavigation() {
 
   return (
     <Wrapper>
-      <MenuButton onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
+      <MenuButton
+        onClick={() => setIsOpen(!isOpen)}
+        onMouseDown={(e) => e.preventDefault()}
+        isOpen={isOpen}
+      >
         <MenuAltRight size="30" />
       </MenuButton>
       <NavWrapper isOpen={isOpen}>
@@ -35,7 +39,7 @@ interface AnimateProps extends MenuProps {
 }
 
 const MenuButton = styled.button<MenuProps>`
-  background-color: var(--color-background);
+  background-color: transparent;
   color: var(--color-text);
   border: none;
   display: block;
@@ -51,7 +55,7 @@ const MenuButton = styled.button<MenuProps>`
 `;
 
 const Nav = styled.nav`
-  padding: 7rem 2rem;
+  padding: 10rem 2rem;
   display: flex;
   & > * + * {
     margin-top: 4rem;
@@ -63,9 +67,11 @@ const Nav = styled.nav`
 const FadeIn = styled.div<MenuProps>`
   opacity: ${(p) => (p.isOpen ? '1' : '0')};
   transition: opacity 0.8s ease-in-out;
+  visibility: ${(p) => (p.isOpen ? 'visible' : 'hidden')};
 `;
 
 const Animate = styled.div<AnimateProps>`
+  visibility: ${(p) => (p.isOpen ? 'visible' : 'hidden')};
   transform: translateX(${(p) => (p.isOpen ? '0' : '-500px')});
   opacity: ${(p) => (p.isOpen ? '1' : '0')};
   transition: transform 0.5s ease-in-out ${(p) => p.delay}s,
@@ -84,14 +90,16 @@ const Wrapper = styled.div`
 
 const NavWrapper = styled.div<MenuProps>`
   position: fixed;
-  width: ${(p) => (p.isOpen ? '100%' : '0')};
+  width: 100%;
+  visibility: ${(p) => (p.isOpen ? 'visible' : 'hidden')};
+  opacity: ${(p) => (p.isOpen ? '1' : '0')};
   overflow: hidden;
   height: 100%;
   top: 0;
   left: 0;
   z-index: 2;
-  background-color: var(--color-background);
-  backdrop-filter: opacity(100%);
+  background-color: var(--color-blurred-background);
+  backdrop-filter: blur(8px);
   transition: all 0.3s ease-in-out;
 `;
 
