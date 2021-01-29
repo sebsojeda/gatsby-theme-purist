@@ -64,10 +64,6 @@ export const query = graphql`
 const TitleWrapper = styled.div`
   text-align: center;
   margin-bottom: 5rem;
-  margin-top: 12.75rem;
-  @media (min-width: 768px) {
-    margin-top: 9rem;
-  }
 `;
 
 const Title = styled.h1`

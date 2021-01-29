@@ -9,7 +9,9 @@ function MobileNavigation() {
 
   return (
     <Wrapper>
-      <MenuIcon size="30" onClick={() => setIsOpen(!isOpen)} isOpen={isOpen} />
+      <MenuButton onClick={() => setIsOpen(!isOpen)} isOpen={isOpen}>
+        <MenuAltRight size="30" />
+      </MenuButton>
       <NavWrapper isOpen={isOpen}>
         <Nav>
           <Animate delay={0.3} isOpen={isOpen}>
@@ -31,6 +33,22 @@ interface MenuProps {
 interface AnimateProps extends MenuProps {
   delay: number;
 }
+
+const MenuButton = styled.button<MenuProps>`
+  background-color: var(--color-background);
+  color: var(--color-text);
+  border: none;
+  display: block;
+  position: ${(p) => (p.isOpen ? 'fixed' : 'static')};
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 3;
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: var(--color-accent);
+    cursor: pointer;
+  }
+`;
 
 const Nav = styled.nav`
   padding: 7rem 2rem;
@@ -75,19 +93,6 @@ const NavWrapper = styled.div<MenuProps>`
   background-color: var(--color-background);
   backdrop-filter: opacity(100%);
   transition: all 0.3s ease-in-out;
-`;
-
-const MenuIcon = styled(MenuAltRight)<MenuProps>`
-  display: block;
-  position: ${(p) => (p.isOpen ? 'fixed' : 'static')};
-  top: 1rem;
-  right: 1.5rem;
-  z-index: 3;
-  transition: color 0.2s ease-in-out;
-  &:hover {
-    color: var(--color-accent);
-    cursor: pointer;
-  }
 `;
 
 export default MobileNavigation;

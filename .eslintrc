@@ -1,6 +1,7 @@
 {
   "extends": [
     "airbnb-base",
+    "plugin:jsx-a11y/recommended",
     "plugin:prettier/recommended",
     "plugin:unicorn/recommended"
   ],
@@ -8,7 +9,9 @@
     "browser": false
   },
   "overrides": [],
-  "plugins": [],
+  "plugins": [
+    "jsx-a11y"
+  ],
   "rules": {
     "unicorn/no-abusive-eslint-disable": 0,
     "unicorn/filename-case": [

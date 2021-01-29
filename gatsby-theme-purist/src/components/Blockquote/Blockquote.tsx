@@ -17,9 +17,9 @@ const Wrapper = styled.div`
   border-radius: 0 0.375rem 0.375rem 0.125rem;
   border-left: 4px solid var(--color-info);
   background-color: var(--color-info-background);
-  margin: 0 -1.5rem;
-  @media (max-width: 1120px) {
-    margin: 0;
+  margin: 0;
+  @media (min-width: 1120px) {
+    margin: 0 -1.5rem;
   }
 `;
 

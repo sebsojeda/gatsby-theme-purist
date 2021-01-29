@@ -125,7 +125,7 @@ const Wrapper = styled(Link)`
 const Banner = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 10rem 0;
+  padding-bottom: 10rem;
 `;
 
 const Heading = styled.h1`

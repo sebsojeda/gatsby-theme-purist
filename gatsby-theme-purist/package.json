@@ -12,13 +12,13 @@
   "homepage": "https://gatsby-theme-purist.netlify.app",
   "keywords": [
     "gatsby",
-    "react",
+    "gatsby-plugin",
     "gatsby-theme",
+    "react",
     "blog",
     "typescript"
   ],
   "peerDependencies": {
-    "@reach/router": "1.3.4",
     "gatsby": "^2.21.21",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"

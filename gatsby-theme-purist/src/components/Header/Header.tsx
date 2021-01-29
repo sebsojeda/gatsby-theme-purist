@@ -23,7 +23,7 @@ interface HeaderProps {
 
 const Wrapper = styled.div`
   background-color: var(--color-background);
-  padding: 1rem 0;
+  padding: 1rem 1.5rem;
   display: grid;
   grid-template-columns: max-content 1fr;
   justify-items: end;
@@ -32,12 +32,13 @@ const Wrapper = styled.div`
   margin-right: auto;
   width: calc(100% - 3rem);
   max-width: 65rem;
-  @media (max-width: 768px) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    padding: 1rem 1.5rem;
-    z-index: 1;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  @media (min-width: 768px) {
+    position: static;
+    padding: 1rem 0;
   }
 `;
 
