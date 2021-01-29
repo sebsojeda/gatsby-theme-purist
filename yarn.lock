@@ -11013,6 +11013,7 @@ fsevents@~2.3.1:
     gatsby-remark-smartypants: ^2.9.0
     gatsby-source-filesystem: ^2.3.1
     gatsby-transformer-sharp: ^2.5.3
+    parse-numeric-range: ^1.2.0
     prism-react-renderer: ^1.1.1
     react: ^16.14.0
     react-dom: ^16.14.0
@@ -16908,6 +16909,13 @@ fsevents@~2.3.1:
     unist-util-modify-children: ^2.0.0
     unist-util-visit-children: ^1.0.0
   checksum: ba2a0bccd1d29e306c2e3414d44b23297d08cb604961c08e7ca1a5dbdb9f57f731166e2fb9529dbb81f5255251bf99db37ad53aec6f42d189f45eab0559c168f
+  languageName: node
+  linkType: hard
+
+"parse-numeric-range@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "parse-numeric-range@npm:1.2.0"
+  checksum: 40557750b3bd855a912fb0ef0754eef21497b7093fdc5da7d19afdd2d2c8ed1dae7299dfc49288fb55942a1e6a05e27b7780a9d5345dc0718c3c2531ebae9548
   languageName: node
   linkType: hard
 

@@ -83,7 +83,7 @@ export const pageQuery = graphql`
 
 const Excerpt = styled.div`
   color: var(--color-muted);
-  margin-top: 1.25rem;
+  padding: 1rem 0 0.5rem 0;
   line-height: 1.25rem;
 `;
 
@@ -97,13 +97,12 @@ const Title = styled.h3`
   display: inline-block;
   font-size: 1.5rem;
   line-height: 2rem;
-  margin-top: 1rem;
+  padding-top: 1rem;
   font-family: var(--font-serif);
 `;
 
 const Subtitle = styled.div`
   color: var(--color-muted);
-  margin-top: 1.25rem;
   font-size: 1rem;
   opacity: 0.5;
 `;
@@ -131,18 +130,22 @@ const Banner = styled.section`
 const Heading = styled.h1`
   font-family: var(--font-serif);
   font-size: 3rem;
-  line-height: 2.5rem;
+  line-height: 3.5rem;
 
   @media (min-width: 768px) {
     font-size: 3.75rem;
-    line-height: 1;
+    line-height: 4rem;
   }
 `;
 
 const SubHeading = styled.h2`
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
   margin-top: 0.5rem;
+  @media (min-width: 768px) {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
 `;
 
 const Label = styled.h3`
@@ -155,9 +158,15 @@ const ArticlesWrapper = styled.div`
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(1, minmax(0, 1fr));
+  & > * + * {
+    margin-top: 1.25rem;
+  }
 
   @media (min-width: 1024px) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    & > * {
+      margin-top: 0;
+    }
   }
 `;
 

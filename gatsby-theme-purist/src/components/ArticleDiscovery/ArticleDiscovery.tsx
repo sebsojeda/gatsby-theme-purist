@@ -83,8 +83,8 @@ const GridColumn = styled.div<GridColumnProps>`
 
 const Excerpt = styled.div`
   color: var(--color-muted);
-  font-size: 1rem;
-  padding: 1rem 0;
+  line-height: 1.25rem;
+  padding: 1rem 0 0.5rem 0;
 `;
 
 const Image = styled(Img)<GatsbyImageProps>`

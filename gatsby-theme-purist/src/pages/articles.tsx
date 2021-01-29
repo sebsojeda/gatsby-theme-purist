@@ -10,11 +10,11 @@ function Articles({ data }) {
       <SEO title="Articles" />
       <ArticlesWrapper>
         {data.allMdx.group
-          .sort((a, b) => +b.fieldValue - +a.fieldValue)
-          .map(({ fieldValue, edges }) => {
+          .sort((a, b) => +b.year - +a.year)
+          .map(({ year, edges }) => {
             return (
-              <React.Fragment key={fieldValue}>
-                <Year>{fieldValue}</Year>
+              <React.Fragment key={year}>
+                <Year>{year}</Year>
                 <Titles>
                   {edges.map(({ node }) => {
                     const { title, date } = node.frontmatter;
@@ -50,7 +50,7 @@ export const pageQuery = graphql`
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       group(field: fields___year) {
-        fieldValue
+        year: fieldValue
         edges {
           node {
             id

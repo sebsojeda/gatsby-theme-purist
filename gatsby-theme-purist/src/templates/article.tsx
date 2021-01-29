@@ -67,16 +67,18 @@ const TitleWrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  font-size: 3rem;
-  line-height: 3.5rem;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
   font-family: var(--font-serif);
+  @media (min-width: 768px) {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
 `;
 
 const Subtitle = styled.div`
   padding-top: 1.25rem;
   margin-bottom: 8rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
   color: var(--color-muted);
 `;
 

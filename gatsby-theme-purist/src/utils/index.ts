@@ -1,3 +1,5 @@
+import rangeParser from 'parse-numeric-range';
+
 function copyToClipboard(text: string) {
   const textarea = document.createElement('textarea');
 
@@ -13,31 +15,6 @@ function copyToClipboard(text: string) {
   document.body.removeChild(textarea);
 }
 
-function searchStore(query: string, limit: number) {
-  let index: any, store: any;
-  let results = [];
-
-  if (typeof window !== 'undefined') {
-    index = window.__FLEXSEARCH__.en.index;
-    store = window.__FLEXSEARCH__.en.store;
-  }
-
-  if (!!query) {
-    let ids: any[] = [];
-
-    Object.keys(index).forEach((idx) =>
-      ids.push(...index[idx].values.search(query, limit)),
-    );
-    results = store
-      .filter((node: any) =>
-        ids.includes(node.id) && !node.node.draft ? node : null,
-      )
-      .map((node: any) => node.node);
-  }
-
-  return results;
-}
-
 function calculateLinesToHighlight(meta: string) {
   const regex = /{([\d,-]+)}/;
 
@@ -45,41 +22,16 @@ function calculateLinesToHighlight(meta: string) {
     return () => false;
   }
 
-  const lineNumbers = parseRange(regex.exec(meta)[1]);
+  const lineNumbers = rangeParser(regex.exec(meta)[1]);
   return (index: number) => lineNumbers.includes(index + 1);
 }
 
-function parseRange(input: string) {
-  let results: number[] = [];
-  let match: RegExpMatchArray;
-
-  for (let str of input.split(',').map((str) => str.trim())) {
-    if (/^\d+$/.test(str)) {
-      results.push(parseInt(str, 10));
-    } else if ((match = str.match(/^(\d+)(-)(\d+)$/))) {
-      let from = parseInt(match[1], 10);
-      let to = parseInt(match[3], 10);
-
-      const increment = from < to ? 1 : -1;
-      to += increment;
-
-      for (let i = from; i !== to; i += increment) {
-        results.push(i);
-      }
-    }
-  }
-
-  return results;
+function kebabCase(str: string) {
+  return str
+    .match(/[A-Z]{2,}(?=[A-Z][a-z0-9]*|\b)|[A-Z]?[a-z0-9]*|[A-Z]|[0-9]+/g)
+    .filter(Boolean)
+    .map((x) => x.toLowerCase())
+    .join('-');
 }
 
-function kebabCase(input) {
-  return input.replace(/([a-z0-9]|(?=[A-Z]))([A-Z])/g, '$1-$2').toLowerCase();
-}
-
-export {
-  copyToClipboard,
-  searchStore,
-  calculateLinesToHighlight,
-  parseRange,
-  kebabCase,
-};
+export { copyToClipboard, calculateLinesToHighlight, kebabCase };

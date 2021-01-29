@@ -44,6 +44,7 @@
     "gatsby-remark-smartypants": "^2.9.0",
     "gatsby-source-filesystem": "^2.3.1",
     "gatsby-transformer-sharp": "^2.5.3",
+    "parse-numeric-range": "^1.2.0",
     "prism-react-renderer": "^1.1.1",
     "react-helmet": "^6.0.0",
     "react-loadable": "^5.5.0",
