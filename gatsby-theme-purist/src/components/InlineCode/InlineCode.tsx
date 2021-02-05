@@ -16,7 +16,6 @@ const InlineCode = styled.code`
     position: absolute;
     border-radius: 0.25rem;
     background-color: var(--prism-inline-code);
-    z-index: -1;
   }
 `;
 
