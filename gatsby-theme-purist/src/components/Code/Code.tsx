@@ -77,7 +77,7 @@ const CopyButton = styled.button<CopyButtonProps>`
   border-radius: 0.375rem;
   padding: 0.5rem;
   top: 0.75rem;
-  right: 0.75rem;
+  right: 0;
   opacity: ${(p) => (p.copied ? 1 : 0.25)};
   font-family: var(--font-monospace);
   font-size: 1rem;
