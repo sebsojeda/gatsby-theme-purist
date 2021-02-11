@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/sebsojeda/gatsby-theme-purist/compare/gatsby-theme-purist@1.1.5...gatsby-theme-purist@1.1.6) (2021-02-11)
+
+
+### Bug Fixes
+
+* fix inline code support issue when rendered inside a blckquote ([46c53bb](https://github.com/sebsojeda/gatsby-theme-purist/commit/46c53bb2bdb87a8a8c751a5fa96ce114c842a814))
+
+
+
+
+
 ## [1.1.5](https://github.com/sebsojeda/gatsby-theme-purist/compare/gatsby-theme-purist@1.1.4...gatsby-theme-purist@1.1.5) (2021-01-29)
 
 **Note:** Version bump only for package gatsby-theme-purist
