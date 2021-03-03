@@ -1,13 +1,16 @@
 import styled from '@emotion/styled';
+import path from 'path';
 import React from 'react';
+import { useBasePath } from '../../utils';
 import Toggle from '../Toggle';
 import { NavLink } from './Navigation';
 
 function DesktopNavigation() {
+  const basePath = useBasePath();
   return (
     <Nav>
       <Flex>
-        <NavLink to="/articles">Articles</NavLink>
+        <NavLink to={path.join('/', basePath, 'articles')}>Articles</NavLink>
         <Toggle />
       </Flex>
     </Nav>

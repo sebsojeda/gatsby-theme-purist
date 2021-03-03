@@ -1,11 +1,14 @@
 import { MenuAltRight } from '@emotion-icons/boxicons-regular';
 import styled from '@emotion/styled';
+import path from 'path';
 import React, { useState } from 'react';
+import { useBasePath } from '../../utils';
 import Toggle from '../Toggle';
 import { NavLink } from './Navigation';
 
 function MobileNavigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const basePath = useBasePath();
 
   return (
     <Wrapper>
@@ -19,7 +22,9 @@ function MobileNavigation() {
       <NavWrapper isOpen={isOpen}>
         <Nav>
           <Animate delay={0.3} isOpen={isOpen}>
-            <NavLink to="/articles">Articles</NavLink>
+            <NavLink to={path.join('/', basePath, 'articles')}>
+              Articles
+            </NavLink>
           </Animate>
           <FadeIn isOpen={isOpen}>
             <Toggle />

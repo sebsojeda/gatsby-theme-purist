@@ -117,6 +117,7 @@ module.exports = {
       resolve: 'gatsby-theme-purist',
       options: {
         contentBase: 'content',
+        basePath: '/',
       },
     },
   ],
@@ -281,9 +282,10 @@ export default {
 
 ### Theme Options
 
-| Key         | Required | Type   | Description                                                              |
-| ----------- | -------- | ------ | ------------------------------------------------------------------------ |
-| contentBase | optional | String | The folder to serve your content from. Defaults to the `content` folder. |
+| Key         | Required | Type   | Description                                                                    |
+| ----------- | -------- | ------ | ------------------------------------------------------------------------------ |
+| contentBase | optional | String | The folder to serve your content from. Defaults to the `content` folder.       |
+| basePath    | optional | String | The base path. Useful for themes hosted on paths other than `/`, like `/blog`. |
 
 #### Supported Icons
 

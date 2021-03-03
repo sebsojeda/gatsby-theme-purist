@@ -1,3 +1,4 @@
+const path = require('path');
 const fs = require('fs');
 const { createFilePath } = require('gatsby-source-filesystem');
 
@@ -29,18 +30,25 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type SitePluginPluginOptions implements Node {
       contentBase: String
+      basePath: String
     }
   `;
   createTypes(typeDefs);
 };
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
+exports.onCreateNode = ({ node, getNode, actions }, themeOptions) => {
   if (node.internal.type === 'Mdx') {
-    const slug = createFilePath({ node, getNode, trailingSlash: false });
+    const basePath = themeOptions.basePath || '/';
+
+    const slug = createFilePath({
+      node,
+      getNode,
+      trailingSlash: false,
+    });
     actions.createNodeField({
       node,
       name: 'slug',
-      value: slug,
+      value: path.join('/', basePath, slug),
     });
 
     const date = new Date(node.frontmatter.date);
@@ -53,7 +61,18 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 };
 
 exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
-  const contentBase = themeOptions.contentBase || '/';
+  const contentBase = themeOptions.contentBase || 'content';
+  const basePath = themeOptions.basePath || '/';
+
+  actions.createPage({
+    path: path.join('/', basePath),
+    component: require.resolve('./src/templates/home.tsx'),
+  });
+
+  actions.createPage({
+    path: path.join('/', basePath, 'articles'),
+    component: require.resolve('./src/templates/articles.tsx'),
+  });
 
   /* https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js */
   const GatsbyImageSharpFluid = `

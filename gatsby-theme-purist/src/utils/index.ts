@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import rangeParser from 'parse-numeric-range';
 
 function copyToClipboard(text: string) {
@@ -34,4 +35,20 @@ function kebabCase(str: string) {
     .join('-');
 }
 
-export { copyToClipboard, calculateLinesToHighlight, kebabCase };
+function useBasePath() {
+  const data = useStaticQuery(graphql`
+    query {
+      allSitePlugin(filter: { name: { eq: "gatsby-theme-purist" } }) {
+        nodes {
+          pluginOptions {
+            basePath
+          }
+        }
+      }
+    }
+  `);
+
+  return data.allSitePlugin.nodes[0]?.pluginOptions?.basePath || '/';
+}
+
+export { copyToClipboard, calculateLinesToHighlight, kebabCase, useBasePath };

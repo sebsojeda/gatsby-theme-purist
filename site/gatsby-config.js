@@ -24,6 +24,7 @@ module.exports = {
       resolve:'gatsby-theme-purist',
       options: {
         contentBase: 'content',
+        basePath: '/',
       },
     },
   ],

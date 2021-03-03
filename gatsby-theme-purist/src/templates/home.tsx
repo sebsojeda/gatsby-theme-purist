@@ -1,12 +1,15 @@
 import styled from '@emotion/styled';
 import { graphql, Link } from 'gatsby';
 import Img, { GatsbyImageProps } from 'gatsby-image';
+import path from 'path';
 import React from 'react';
 import Layout from '../components/Layout';
+import { useBasePath } from '../utils';
 
 function HomePage({ data }) {
   const { heading, subHeading } = data.site.siteMetadata.hero;
   const articles = data.latestArticles.edges;
+  const basePath = useBasePath();
 
   return (
     <Layout>
@@ -31,7 +34,9 @@ function HomePage({ data }) {
               </Wrapper>
             ))}
           </ArticlesWrapper>
-          <ArticlesLink to="/articles">All Articles →</ArticlesLink>
+          <ArticlesLink to={path.join('/', basePath, 'articles')}>
+            All Articles →
+          </ArticlesLink>
         </>
       )}
     </Layout>

@@ -112,7 +112,15 @@ module.exports = {
       },
     ],
   },
-  plugins: ['gatsby-theme-purist'],
+  plugins: [
+    {
+      resolve: 'gatsby-theme-purist',
+      options: {
+        contentBase: 'content',
+        basePath: '/',
+      },
+    },
+  ],
 };
 ```
 
@@ -271,6 +279,13 @@ export default {
 | hero.heading    | required | String | Text displayed on the homepage hero.                                                                            |
 | hero.subHeading | optional | String | Subtext displayed on the homepage hero.                                                                         |
 | social          | optional | Array  | List of objects containing a `name` and a `url` to link in the footer. See a list of [supported icons](#below). |
+
+### Theme Options
+
+| Key         | Required | Type   | Description                                                                    |
+| ----------- | -------- | ------ | ------------------------------------------------------------------------------ |
+| contentBase | optional | String | The folder to serve your content from. Defaults to the `content` folder.       |
+| basePath    | optional | String | The base path. Useful for themes hosted on paths other than `/`, like `/blog`. |
 
 #### Supported Icons
 
