@@ -131,7 +131,6 @@ const Pre = styled.pre`
 `;
 
 const CodeWrapper = styled.code`
-  user-select: none;
   float: left;
   min-width: calc(100% - 3rem);
   padding: 1.5rem;
