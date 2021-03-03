@@ -26,6 +26,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       name: String
       url: String!
     }
+
+    type SitePluginPluginOptions implements Node {
+      contentBase: String
+    }
   `;
   createTypes(typeDefs);
 };
