@@ -52,7 +52,9 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
+exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
+  const contentBase = themeOptions.contentBase || '/';
+
   /* https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js */
   const GatsbyImageSharpFluid = `
       base64
@@ -66,7 +68,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     query {
       allMdx(
         filter: {
-          fileAbsolutePath: { regex: "/content/" }
+          fileAbsolutePath: { regex: "/${contentBase}/" }
           fields: { draft: { ne: true } }
         }
         limit: 1000
