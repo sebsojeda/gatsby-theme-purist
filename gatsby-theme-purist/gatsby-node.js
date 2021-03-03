@@ -1,10 +1,11 @@
 const fs = require('fs');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-exports.onPreBootstrap = ({ reporter }) => {
-  if (!fs.existsSync('content')) {
-    reporter.info(`creating the 'content' directory`);
-    fs.mkdirSync('content', { recursive: true });
+exports.onPreBootstrap = ({ reporter }, themeOptions) => {
+  const contentBase = themeOptions.contentBase || 'content';
+  if (!fs.existsSync(contentBase)) {
+    reporter.info(`creating the '${contentBase}' directory`);
+    fs.mkdirSync(contentBase, { recursive: true });
   }
 };
 

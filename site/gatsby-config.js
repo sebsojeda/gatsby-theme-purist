@@ -19,5 +19,12 @@ module.exports = {
       },
     ],
   },
-  plugins: ['gatsby-theme-purist'],
+  plugins: [
+    {
+      resolve:'gatsby-theme-purist',
+      options: {
+        contentBase: 'content',
+      },
+    },
+  ],
 };

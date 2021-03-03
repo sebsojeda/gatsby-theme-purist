@@ -1,4 +1,4 @@
-module.exports = {
+module.exports = ({ contentBase = 'content' }) => ({
   plugins: [
     'gatsby-plugin-catch-links',
     'gatsby-plugin-react-helmet',
@@ -44,8 +44,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: 'content',
+        path: contentBase,
       },
     },
   ],
-};
+});
