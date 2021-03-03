@@ -23,6 +23,7 @@ const Title = styled.div`
   font-size: 5rem;
   line-height: 4.25rem;
   margin-bottom: 1rem;
+  color: var(--color-text-header);
 `;
 
 const Subtitle = styled.div`
