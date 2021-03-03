@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/sebsojeda/gatsby-theme-purist/compare/gatsby-theme-purist@1.1.6...gatsby-theme-purist@1.2.0) (2021-03-03)
+
+
+### Bug Fixes
+
+* content base issue when creating pages ([08e7a2a](https://github.com/sebsojeda/gatsby-theme-purist/commit/08e7a2a76d2946f3e45d4cb1e552d9104465d966))
+* make content base optional ([494fa17](https://github.com/sebsojeda/gatsby-theme-purist/commit/494fa1754e038e021446df1c17db3e4e0bb55ac8))
+
+
+### Features
+
+* add basePath option to theme ([cfe9114](https://github.com/sebsojeda/gatsby-theme-purist/commit/cfe911433ab73f6b3984f8a0901207a3ed0f1ff6))
+* add content base theme option ([bcf374a](https://github.com/sebsojeda/gatsby-theme-purist/commit/bcf374a98682aac21713679d015f73a834d907a2))
+
+
+
+
+
 ## [1.1.6](https://github.com/sebsojeda/gatsby-theme-purist/compare/gatsby-theme-purist@1.1.5...gatsby-theme-purist@1.1.6) (2021-02-11)
 
 
