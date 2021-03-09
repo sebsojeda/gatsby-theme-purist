@@ -25,6 +25,7 @@ module.exports = {
       options: {
         contentBase: 'content',
         basePath: '/',
+        featuredArticleLimit: 2,
       },
     },
   ],

@@ -118,6 +118,7 @@ module.exports = {
       options: {
         contentBase: 'content',
         basePath: '/',
+        featuredArticleLimit: 2,
       },
     },
   ],
@@ -282,10 +283,11 @@ export default {
 
 ### Theme Options
 
-| Key         | Required | Type   | Description                                                                                                |
-| ----------- | -------- | ------ | ---------------------------------------------------------------------------------------------------------- |
-| contentBase | optional | String | The folder to serve your content from. Defaults to the `content` folder. Must not end in a trailing slash. |
-| basePath    | optional | String | The base path. Useful for themes hosted on paths other than `/`, like `/blog`.                             |
+| Key                  | Required | Type   | Description                                                                                                |
+| -------------------- | -------- | ------ | ---------------------------------------------------------------------------------------------------------- |
+| contentBase          | optional | String | The folder to serve your content from. Defaults to the `content` folder. Must not end in a trailing slash. |
+| basePath             | optional | String | The base path. Useful for themes hosted on paths other than `/`, like `/blog`.                             |
+| featuredArticleLimit | optional | Int    | The number of recent articles to display on the home page. Defaults to `2`.                                |
 
 #### Supported Icons
 

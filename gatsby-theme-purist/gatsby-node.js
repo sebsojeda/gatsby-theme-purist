@@ -32,6 +32,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type SitePluginPluginOptions implements Node {
       contentBase: String
       basePath: String
+      featuredArticleLimit: Int
     }
   `;
   createTypes(typeDefs);
@@ -65,12 +66,14 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   const contentBase = themeOptions.contentBase || 'content';
   const contentPath = `${contentBase}/articles`;
   const basePath = themeOptions.basePath || '/';
+  const featuredArticleLimit = themeOptions.featuredArticleLimit || 2;
 
   actions.createPage({
     path: path.join('/', basePath),
     component: require.resolve('./src/templates/home.tsx'),
     context: {
       contentPath: `/${contentPath}/`,
+      featuredArticleLimit,
     },
   });
 

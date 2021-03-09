@@ -44,7 +44,7 @@ function HomePage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query Index($contentPath: String!) {
+  query Index($contentPath: String!, $featuredArticleLimit: Int!) {
     site {
       siteMetadata {
         hero {
@@ -58,7 +58,7 @@ export const pageQuery = graphql`
         fileAbsolutePath: { regex: $contentPath }
         fields: { draft: { ne: true } }
       }
-      limit: 2
+      limit: $featuredArticleLimit
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       edges {
