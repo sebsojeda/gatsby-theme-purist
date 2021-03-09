@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/sebsojeda/gatsby-theme-purist/compare/gatsby-theme-purist@1.2.0...gatsby-theme-purist@1.3.0) (2021-03-09)
+
+
+### Bug Fixes
+
+* add 'articles' folder to content base ([555ef23](https://github.com/sebsojeda/gatsby-theme-purist/commit/555ef2395b8883de65625d2e854c0bd46a223bcd))
+* content base not working in templates ([58a759f](https://github.com/sebsojeda/gatsby-theme-purist/commit/58a759f927e271a46222ec07b11c5f2f0614f6ff))
+
+
+### Features
+
+* add featured article limit option to theme homepage ([62c33e7](https://github.com/sebsojeda/gatsby-theme-purist/commit/62c33e7e495a4577523fb982cccbb022f9455726))
+
+
+
+
+
 # [1.2.0](https://github.com/sebsojeda/gatsby-theme-purist/compare/gatsby-theme-purist@1.1.6...gatsby-theme-purist@1.2.0) (2021-03-03)
 
 
