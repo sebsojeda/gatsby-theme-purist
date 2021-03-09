@@ -6,7 +6,7 @@ exports.onPreBootstrap = ({ reporter }, themeOptions) => {
   const contentBase = themeOptions.contentBase || 'content';
   if (!fs.existsSync(contentBase)) {
     reporter.info(`creating the '${contentBase}' directory`);
-    fs.mkdirSync(contentBase, { recursive: true });
+    fs.mkdirSync(path.join(contentBase, 'articles'), { recursive: true });
   }
 };
 
@@ -87,7 +87,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     query {
       allMdx(
         filter: {
-          fileAbsolutePath: { regex: "/${contentBase}/" }
+          fileAbsolutePath: { regex: "/${path.join(contentBase, 'articles')}/" }
           fields: { draft: { ne: true } }
         }
         limit: 1000
