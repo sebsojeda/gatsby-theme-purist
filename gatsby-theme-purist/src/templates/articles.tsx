@@ -41,10 +41,10 @@ function Articles({ data }) {
 }
 
 export const pageQuery = graphql`
-  query AllPosts {
+  query AllPosts($contentPath: String!) {
     allMdx(
       filter: {
-        fileAbsolutePath: { regex: "/content/" }
+        fileAbsolutePath: { regex: $contentPath }
         fields: { draft: { ne: true } }
       }
       sort: { fields: [frontmatter___date], order: DESC }

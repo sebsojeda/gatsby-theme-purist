@@ -4,9 +4,10 @@ const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onPreBootstrap = ({ reporter }, themeOptions) => {
   const contentBase = themeOptions.contentBase || 'content';
-  if (!fs.existsSync(contentBase)) {
-    reporter.info(`creating the '${contentBase}' directory`);
-    fs.mkdirSync(path.join(contentBase, 'articles'), { recursive: true });
+  const contentPath = `${contentBase}/articles`;
+  if (!fs.existsSync(contentPath)) {
+    reporter.info(`creating the '${contentPath}' directory`);
+    fs.mkdirSync(contentPath, { recursive: true });
   }
 };
 
@@ -62,16 +63,23 @@ exports.onCreateNode = ({ node, getNode, actions }, themeOptions) => {
 
 exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
   const contentBase = themeOptions.contentBase || 'content';
+  const contentPath = `${contentBase}/articles`;
   const basePath = themeOptions.basePath || '/';
 
   actions.createPage({
     path: path.join('/', basePath),
     component: require.resolve('./src/templates/home.tsx'),
+    context: {
+      contentPath: `/${contentPath}/`,
+    },
   });
 
   actions.createPage({
     path: path.join('/', basePath, 'articles'),
     component: require.resolve('./src/templates/articles.tsx'),
+    context: {
+      contentPath: `/${contentPath}/`,
+    },
   });
 
   /* https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js */
@@ -87,7 +95,7 @@ exports.createPages = async ({ actions, graphql, reporter }, themeOptions) => {
     query {
       allMdx(
         filter: {
-          fileAbsolutePath: { regex: "/${path.join(contentBase, 'articles')}/" }
+          fileAbsolutePath: { regex: "/${contentPath}/" }
           fields: { draft: { ne: true } }
         }
         limit: 1000

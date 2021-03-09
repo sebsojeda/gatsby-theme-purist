@@ -44,7 +44,7 @@ function HomePage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query Index {
+  query Index($contentPath: String!) {
     site {
       siteMetadata {
         hero {
@@ -55,7 +55,7 @@ export const pageQuery = graphql`
     }
     latestArticles: allMdx(
       filter: {
-        fileAbsolutePath: { regex: "/content/" }
+        fileAbsolutePath: { regex: $contentPath }
         fields: { draft: { ne: true } }
       }
       limit: 2
