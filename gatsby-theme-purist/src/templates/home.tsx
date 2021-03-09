@@ -15,7 +15,7 @@ function HomePage({ data }) {
     <Layout>
       <Banner>
         <Heading>{heading}</Heading>
-        {subHeading && <SubHeading>{subHeading}</SubHeading>}
+        {subHeading && <SubHeading><div dangerouslySetInnerHTML={{ __html: subHeading }} /></SubHeading>}
       </Banner>
       {!!articles.length && (
         <>
