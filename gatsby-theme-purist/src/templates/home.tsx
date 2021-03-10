@@ -15,7 +15,7 @@ function HomePage({ data }) {
     <Layout>
       <Banner>
         <Heading>{heading}</Heading>
-        {subHeading && <SubHeading>{subHeading}</SubHeading>}
+        {subHeading && <SubHeading><div dangerouslySetInnerHTML={{ __html: subHeading }} /></SubHeading>}
       </Banner>
       {!!articles.length && (
         <>
@@ -150,6 +150,16 @@ const SubHeading = styled.h2`
   @media (min-width: 768px) {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+  a {
+    text-decoration: none;
+    color: var(--color-text);
+    box-shadow: 0 2px 0 var(--color-text);
+    transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    &:hover {
+      color: var(--color-accent);
+      box-shadow: 0 2px 0 var(--color-accent);
+    }
   }
 `;
 
