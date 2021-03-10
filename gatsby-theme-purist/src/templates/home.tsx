@@ -151,6 +151,16 @@ const SubHeading = styled.h2`
     font-size: 1.5rem;
     line-height: 2rem;
   }
+  a {
+    text-decoration: none;
+    color: var(--color-text);
+    box-shadow: 0 2px 0 var(--color-text);
+    transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    &:hover {
+      color: var(--color-accent);
+      box-shadow: 0 2px 0 var(--color-accent);
+    }
+  }
 `;
 
 const Label = styled.h3`
