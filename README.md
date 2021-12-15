@@ -138,7 +138,7 @@ Start by creating the component file at:
 ```
   gatsby-site
   └── src
-    └── gatsby-theme-purity
+    └── gatsby-theme-purist
       └── components
         └── Logo
           └── index.js
@@ -176,7 +176,7 @@ export default function Logo() {
 
 Create a theme file and then you can override it with custom values.
 
-`/src/gatsby-theme-purity/theme/index.js`
+`/src/gatsby-theme-purist/theme/index.js`
 
 ```js
 export default {
