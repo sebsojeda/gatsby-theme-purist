@@ -56,7 +56,7 @@
     "@types/animejs": "2.0.2",
     "@types/react-helmet": "^5.0.19",
     "@types/react-loadable": "^5.5.6",
-    "gatsby": "^2.32.13",
+    "gatsby": "^4.25.7",
     "react": "^16.14.0",
     "react-dom": "^16.14.0"
   }
